@@ -1,0 +1,389 @@
+11TN0102 Frognerseteren-Voksenkollen 1
+11TN0203 Voksenkollen-Lillevann 2
+11TN0304 Lillevann-Skogen 2
+11TN0405 Skogen-Voksenlia 2
+11TN0506 Voksenlia-Holmenkollen 3
+11TN0607 Holmenkollen-Besserud 2
+11TN0708 Besserud-Midtstuen 1
+11TN0809 Midtstuen-Skådalen 1
+11TN0910 Skådalen-Vettakollen 2
+11TN1011 Vettakollen-Gråkammen 2
+11TN1112 Gråkammen-Slemdal 2
+11TN1213 Slemdal-Ris 2
+11TN1314 Ris-Gaustad 1
+11TN1415 Gaustad-Vinderen 2
+11TN1516 Vinderen-Steinerud 2
+11TN1617 Steinerud-Frøen 2
+11TN1718 Frøen-Majorstuen 2
+11TN1819 Majorstuen-Nationaltheatret 2
+12TN1812 Majorstuen-Nationaltheatret
+13TN1817 Majorstuen-Nationaltheatret
+14TN1822 Majorstuen-Nationaltheatret
+15TN1811 Majorstuen-Nationaltheatret 
+11TN1920 Nationaltheatret-Stortinget 2
+12TN1913 Nationaltheatret-Stortinget
+13TN1918 Nationaltheatret-Stortinget
+14TN1923 Nationaltheatret-Stortinget
+15TN1912 Nationaltheatret-Stortinget 
+11TN2021 Stortinget-Jernbanetorget 1
+12TN2014 Stortinget-Jernbanetorget
+13TN2019 Stortinget-Jernbanetorget
+14TN2024 Stortinget-Jernbanetorget
+15TN2013 Stortinget-Jernbanetorget
+11TN2122 Jernbanetorget-Grønland 1
+12TN2115 Jernbanetorget-Grønland
+13TN2120 Jernbanetorget-Grønland
+14TN2125 Jernbanetorget-Grønland
+15TN2114 Jernbanetorget-Grønland
+11TN2223 Grønland-Tøyen 3
+12TN2216 Grønland-Tøyen
+13TN2221 Grønland-Tøyen
+14TN2226 Grønland-Tøyen
+15TN2215 Grønland-Tøyen
+11TN2324 Tøyen-Ensjø 1
+12TN2317 Tøyen-Ensjø
+13TN2322 Tøyen-Ensjø
+14TN2327 Tøyen-Ensjø
+11TN2425 Ensjø-Helsfyr 2
+12TN2418 Ensjø-Helsfyr
+13TN2423 Ensjø-Helsfyr
+14TN2428 Ensjø-Helsfyr
+11TN2526 Helsfyr-Brynseng 2
+12TN2519 Helsfyr-Brynseng
+13TN2524 Helsfyr-Brynseng
+14TN2529 Helsfyr-Brynseng
+11TN2627 Brynseng-Høyenhall 1
+14TN2630 Brynseng-Høyenhall
+11TN2728 Høyenhall-Manglerud 2
+14TN2731 Høyenhall-Manglerud
+11TN2829 Manglerud-Ryen 1
+14TN2832 Manglerud-Ryen 
+11TN2930 Ryen-Brattlikollen 2
+14TN2933 Ryen-Brattlikollen
+11TN3031 Brattlikollen-Karlsrud 1
+14TN3034 Brattlikollen-Karlsrud
+11TN3132 Karlsrud-Lambertseter 2
+14TN3135 Karlsrud-Lambertseter
+11TN3233 Lambertseter-Munkelia 1
+14TN3236 Lambertseter-Munkelia
+11TN3334 Munkelia-Bergkrystallen 3
+14TN3337 Munkelia-Bergkrystallen
+
+22TN0102 Østerås-Lijordet 1
+22TN0203 Lijordet-Eiksmarka 1
+22TN0304 Eiksmarka-Ekraveien 2
+22TN0405 Ekraveien-Røa 1
+22TN0506 Røa-Hovseter 1
+22TN0607 Hovseter-Holmen 1
+22TN0708 Holmen-Makrellbekken 2
+22TN0809 Makrellbekken-Smestad 2
+22TN0910 Smestad-Borgen 2
+23TN0915 Smestad-Borgen
+22TN1011 Borgen-Majorstuen 3 
+23TN1016 Borgen-Majorstuen
+22TN1112 Majorstuen-Nationaltheatret 2
+21TN1119 Majorstuen-Nationaltheatret
+23TN1117 Majorstuen-Nationaltheatret
+24TN1122 Majorstuen-Nationaltheatret
+25TN1111 Majorstuen-Nationaltheatret
+22TN1213 Nationaltheatret-Stortinget 2
+21TN1220 Nationaltheatret-Stortinget
+23TN1218 Nationaltheatret-Stortinget
+24TN1223 Nationaltheatret-Stortinget
+25TN1212 Nationaltheatret-Stortinget
+22TN1314 Stortinget-Jernbanetorget 1
+21TN1321 Stortinget-Jernbanetorget
+23TN1319 Stortinget-Jernbanetorget
+24TN1324 Stortinget-Jernbanetorget
+25TN1313 Stortinget-Jernbanetorget
+22TN1415 Jernbanetorget-Grønland 1
+21TN1422 Jernbanetorget-Grønland
+23TN1420 Jernbanetorget-Grønland
+24TN1425 Jernbanetorget-Grønland
+25TN1414 Jernbanetorget-Grønland
+22TN1516 Grønland-Tøyen 3
+21TN1523 Grønland-Tøyen
+23TN1521 Grønland-Tøyen
+24TN1526 Grønland-Tøyen
+25TN1515 Grønland-Tøyen
+22TN1617 Tøyen-Ensjø 1
+21TN1624 Tøyen-Ensjø
+23TN1622 Tøyen-Ensjø
+24TN1627 Tøyen-Ensjø 
+22TN1718 Ensjø-Helsfyr 2
+21TN1725 Ensjø-Helsfyr
+23TN1723 Ensjø-Helsfyr
+24TN1728 Ensjø-Helsfyr
+22TN1819 Helsfyr-Brynseng 2 
+21TN1826 Helsfyr-Brynseng
+23TN1824 Helsfyr-Brynseng
+24TN1829 Helsfyr-Brynseng
+22TN1920 Brynseng-Hellerud 2
+23TN1925 Brynseng-Hellerud
+22TN2021 Hellerud-Tveita 2
+22TN2122 Tveita-Haugerud 2
+22TN2223 Haugerud-Trosterud 2 
+22TN2324 Trosterud-Lindeberg 2
+22TN2425 Lindeberg-Furuset 2
+22TN2526 Furuset-Ellingsrudåsen 2
+
+33TN0102 Kolsås-Hauger 1
+33TN0203 Hauger-Gjettum 2 
+33TN0304 Gjettum-Avløs 1  
+33TN0405 Avløs-Haslum 1 
+33TN0506 Haslum-Gjønnes 2
+33TN0607 Gjønnes-Bekkestua 2
+33TN0708 Bekkestua-Ringstabekk 1
+33TN0809 Ringstabekk-Jar 2
+33TN0910 Jar-Bjørnsletta 2
+33TN1011 Bjørnsletta-Åsjordet 1
+33TN1112 Åsjordet-Ullernåsen 2
+33TN1213 Ullernåsen-Montebello 1
+33TN1314 Montebello-Smestad 3 
+33TN1415 Smestad-Borgen 2
+32TN1410 Smestad-Borgen
+33TN1516 Borgen-Majorstuen 3 
+32TN1511 Borgen-Majorstuen 
+33TN1617 Majorstuen-Nationaltheatret 2 
+31TN1619 Majorstuen-Nationaltheatret 10 (det er ikke en tunnel men bytte)
+32TN1612 Majorstuen-Nationaltheatret
+34TN1622 Majorstuen-Nationaltheatret
+35TN1611 Majorstuen-Nationaltheatret
+33TN1718 Nationaltheatret-Stortinget 2
+31TN1720 Nationaltheatret-Stortinget
+32TN1713 Nationaltheatret-Stortinget
+34TN1723 Nationaltheatret-Stortinget
+35TN1712 Nationaltheatret-Stortinget
+33TN1819 Stortinget-Jernbanetorget 1 
+31TN1821 Stortinget-Jernbanetorget
+32TN1814 Stortinget-Jernbanetorget
+34TN1824 Stortinget-Jernbanetorget
+35TN1813 Stortinget-Jernbanetorget
+33TN1920 Jernbanetorget-Grønland 1
+31TN1922 Jernbanetorget-Grønland
+32TN1915 Jernbanetorget-Grønland
+34TN1925 Jernbanetorget-Grønland
+35TN1914 Jernbanetorget-Grønland
+33TN2021 Grønland-Tøyen 3
+31TN2023 Grønland-Tøyen
+32TN2016 Grønland-Tøyen
+34TN2026 Grønland-Tøyen
+35TN2015 Grønland-Tøyen 
+33TN2122 Tøyen-Ensjø 1 
+31TN2124 Tøyen-Ensjø 
+32TN2117 Tøyen-Ensjø
+34TN2127 Tøyen-Ensjø
+33TN2223 Ensjø-Helsfyr 2
+31TN2225 Ensjø-Helsfyr
+32TN2218 Ensjø-Helsfyr
+34TN2228 Ensjø-Helsfyr
+33TN2324 Helsfyr-Brynseng 2
+31TN2326 Helsfyr-Brynseng
+32TN2319 Helsfyr-Brynseng
+34TN2329 Helsfyr-Brynseng
+33TN2425 Brynseng-Hellerud 2
+32TN2420 Brynseng-Hellerud
+33TN2526 Hellerud-Godlia 2
+33TN2627 Godlia-Skøyenåsen 1 
+33TN2728 Skøyenåsen-Oppsal 2
+33TN2829 Oppsal-Ulsrud 1
+33TN2930 Ulsrud-Bøler 2
+33TN3031 Bøler-Bogerud 1 
+33TN3132 Bogerud-Skullerud 2
+33TN3233 Skullerud-Mortensrud 3
+
+44TN0102 Vestli-Stovner 1
+45TN0142 Vestli-Stovner
+44TN0203 Stovner-Rommen 1 
+45TN0241 Stovner-Rommen
+44TN0304 Rommen-Romsås 1
+45TN0340 Rommen-Romsås
+44TN0405 Romsås-Grorud 1
+45TN0439 Romsås-Grorud
+44TN0506 Grorud-Ammerud 2 
+45TN0538 Grorud-Ammerud
+44TN0607 Ammerud-Kalbakken 1
+45TN0637 Ammerud-Kalbakken
+44TN0708 Kalbakken-Rødtvet 1
+45TN0736 Kalbakken-Rødtvet
+44TN0809 Rødtvet-Veitvet 2
+45TN0835 Rødtvet-Veitvet
+44TN0910 Veitvet-Linderud 1
+45TN0934 Veitvet-Linderud
+44TN1011 Linderud-Vollebekk 1
+45TN1033 Linderud-Vollebekk
+44TN1112 Vollebekk-Risløkka 2 
+45TN1132 Vollebekk-Risløkka
+44TN1213 Risløkka-Økern 2
+45TN1231 Risløkka-Økern  
+44TN1314 Økern-Løren 2 
+44TN1415 Løren-Sinsen 2 
+44TN1516 Sinsen-Storo 1 
+45TN1518 Sinsen-Storo
+44TN1617 Storo-Nydalen 2 
+45TN1619 Storo-Nydalen
+44TN1718 Nydalen-UllevålStadion 3 
+45TN1720 Nydalen-UllevålStadion
+44TN1819 UllevålStadion-Forskningsparken 1 
+45TN1821 UllevålStadion-Forskningsparken
+44TN1920 Forskningsparken-Blindern 1
+45TN1922 Forskningsparken-Blindern
+44TN2021 Blindern-Majorstuen 4
+45TN2023 Blindern-Majorstuen (må kanskje legge til begge maja fra linje 5 for å riktig logikk på bane bytte)
+44TN2122 Majorstuen-Nationaltheatret 2 
+41TN2119 Majorstuen-Nationaltheatret
+42TN2112 Majorstuen-Nationaltheatret
+43TN2117 Majorstuen-Nationaltheatret
+45TN2111 Majorstuen-Nationaltheatret
+44TN2223 Nationaltheatret-Stortinget 2
+41TN2220 Nationaltheatret-Stortinget
+42TN2213 Nationaltheatret-Stortinget
+43TN2218 Nationaltheatret-Stortinget
+45TN2212 Nationaltheatret-Stortinget
+44TN2324 Stortinget-Jernbanetorget 1
+41TN2321 Stortinget-Jernbanetorget
+42TN2314 Stortinget-Jernbanetorget
+43TN2319 Stortinget-Jernbanetorget
+45TN2313 Stortinget-Jernbanetorget
+44TN2425 Jernbanetorget-Grønland 1 
+41TN2422 Jernbanetorget-Grønland
+42TN2415 Jernbanetorget-Grønland
+43TN2420 Jernbanetorget-Grønland
+45TN2414 Jernbanetorget-Grønland
+44TN2526 Grønland-Tøyen 3
+41TN2523 Grønland-Tøyen
+42TN2516 Grønland-Tøyen
+43TN2521 Grønland-Tøyen
+45TN2515 Grønland-Tøyen
+44TN2627 Tøyen-Ensjø 1
+41TN2624 Tøyen-Ensjø
+42TN2617 Tøyen-Ensjø
+43TN2622 Tøyen-Ensjø
+44TN2728 Ensjø-Helsfyr 2 
+41TN2725 Ensjø-Helsfyr
+42TN2718 Ensjø-Helsfyr
+43TN2723 Ensjø-Helsfyr
+44TN2829 Helsfyr-Brynseng 2 
+41TN2826 Helsfyr-Brynseng
+42TN2819 Helsfyr-Brynseng
+43TN2824 Helsfyr-Brynseng
+44TN2930 Brynseng-Høyenhall 1
+41TN2927 Brynseng-Høyenhall
+44TN3031 Høyenhall-Manglerud 2
+41TN3028 Høyenhall-Manglerud
+44TN3132 Manglerud-Ryen 1
+41TN3129 Manglerud-Ryen
+44TN3233 Ryen-Brattlikollen 2
+41TN3230 Ryen-Brattlikollen
+44TN3334 Brattlikollen-Karlsrud 1
+41TN3331 Brattlikollen-Karlsrud
+44TN3435 Karlsrud-Lambertseter 2
+41TN3432 Karlsrud-Lambertseter
+44TN3536 Lambertseter-Munkelia 1
+41TN3533 Lambertseter-Munkelia
+44TN3637 Munkelia-Bergkrystallen 3
+41TN3634 Munkelia-Bergkrystallen
+
+55TN0102 Sognsvann-Kringsjå 0
+55TN0203 Kringsjå-Holstein 1
+55TN0304 Holstein-Østhorn 2
+55TN0405 Østhorn-Tåsen 1
+55TN0506 Tåsen-Berg 1
+55TN0607 Berg-UllevålStadion 2
+55TN0708 UllevålStadion-Forskningsparken 1 
+54TN0719 UllevålStadion-Forskningsparken
+55TN0809 Forskningsparken-Blindern 1
+54TN0820 Forskningsparken-Blindern
+55TN0910 Blindern-Majorstuen 4 
+54TN0921 Blindern-Majorstuen
+55TN1011 Majorstuen-Nationaltheatret 2
+51TN1019 Majorstuen-Nationaltheatret
+52TN1012 Majorstuen-Nationaltheatret
+53TN1017 Majorstuen-Nationaltheatret
+54TN1022 Majorstuen-Nationaltheatret
+55TN1112 Nationaltheatret-Stortinget 2
+51TN1120 Nationaltheatret-Stortinget
+52TN1113 Nationaltheatret-Stortinget
+53TN1118 Nationaltheatret-Stortinget
+54TN1123 Nationaltheatret-Stortinget
+55TN1213 Stortinget-Jernbanetorget 1
+51TN1221 Stortinget-Jernbanetorget
+52TN1214 Stortinget-Jernbanetorget
+53TN1219 Stortinget-Jernbanetorget
+54TN1224 Stortinget-Jernbanetorget
+55TN1314 Jernbanetorget-Grønland 1
+51TN1322 Jernbanetorget-Grønland
+52TN1315 Jernbanetorget-Grønland
+53TN1320 Jernbanetorget-Grønland
+54TN1325 Jernbanetorget-Grønland
+55TN1415 Grønland-Tøyen 3
+51TN1423 Grønland-Tøyen
+52TN1416 Grønland-Tøyen
+53TN1421 Grønland-Tøyen
+54TN1426 Grønland-Tøyen
+55TN1516 Tøyen-CarlBernersPlass 2
+55TN1617 CarlBernersPlass-Sinsen 3
+55TN1718 Sinsen-Storo 1
+54TN1716 Sinsen-Storo
+55TN1819 Storo-Nydalen 2
+54TN1817 Storo-Nydalen
+55TN1920 Nydalen-UllevålStadion 3
+54TN1918 Nydalen-UllevålStadion
+55TN2021 UllevålStadion-Forskningsparken 1
+54TN2019 UllevålStadion-Forskningsparken
+55TN2122 Forskningsparken-Blindern 1 
+54TN2120 Forskningsparken-Blindern
+55TN2223 Blindern-Majorstuen 4
+54TN2221 Blindern-Majorstuen
+55TN2324 Majorstuen-Nationaltheatret 2 
+51TN2319 Majorstuen-Nationaltheatret
+52TN2312 Majorstuen-Nationaltheatret
+53TN2317 Majorstuen-Nationaltheatret
+54TN2322 Majorstuen-Nationaltheatret
+55TN2425 Nationaltheatret-Stortinget 2
+51TN2420 Nationaltheatret-Stortinget
+52TN2413 Nationaltheatret-Stortinget
+53TN2418 Nationaltheatret-Stortinget
+54TN2423 Nationaltheatret-Stortinget
+55TN2526 Stortinget-Jernbanetorget 1
+51TN2521 Stortinget-Jernbanetorget
+52TN2514 Stortinget-Jernbanetorget
+53TN2519 Stortinget-Jernbanetorget
+54TN2524 Stortinget-Jernbanetorget
+55TN2627 Jernbanetorget-Grønland 1
+51TN2622 Jernbanetorget-Grønland
+52TN2615 Jernbanetorget-Grønland
+53TN2620 Jernbanetorget-Grønland
+54TN2625 Jernbanetorget-Grønland
+55TN2728 Grønland-Tøyen 3
+51TN2723 Grønland-Tøyen
+52TN2716 Grønland-Tøyen
+53TN2721 Grønland-Tøyen
+54TN2726 Grønland-Tøyen
+55TN2829 Tøyen-CarlBernersPlass 2
+55TN2930 CarlBernersPlass-Hasle 2
+55TN3031 Hasle-Økern 2
+55TN3132 Økern-Risløkka 2
+54TN3112 Økern-Risløkka
+55TN3233 Risløkka-Vollebekk 1
+54TN3211 Risløkka-Vollebekk
+55TN3334 Vollebekk-Linderud 1
+54TN3310 Vollebekk-Linderud
+55TN3435 Linderud-Veitvet 1
+54TN3409 Linderud-Veitvet
+55TN3536 Veitvet-Rødtvet 3 
+54TN3508 Veitvet-Rødtvet
+55TN3637 Rødtvet-Kalbakken 1 
+54TN3607 Rødtvet-Kalbakken
+55TN3738 Kalbakken-Ammerud 1 
+54TN3706 Kalbakken-Ammerud
+55TN3839 Ammerud-Grorud 1
+54TN3805 Ammerud-Grorud
+55TN3940 Grorud-Romsås 1 
+54TN3904 Grorud-Romsås
+55TN4041 Romsås-Rommen 2 
+54TN4003 Romsås-Rommen
+55TN4142 Rommen-Stovner 1   
+54TN4102 Rommen-Stovner
+55TN4243 Stovner-Vestli 4
+54TN4201 Stovner-Vestli
