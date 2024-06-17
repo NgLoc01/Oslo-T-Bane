@@ -15,7 +15,7 @@ class TBane{
         tunnels = new HashMap<>();
     }
 
-    public void addStation(String station){ // i grafen
+    public void addStation(String station){ // in the graph
         graph.put(station, new ArrayList<>());
     }
 
@@ -43,27 +43,46 @@ class TBane{
     public static void main(String[] args){
         TBane tbane = new TBane();
 
+        //Tunnels - The tunnels has to be added into the tunnels hashmap first so i can be used when making stations 
         try{
-            Scanner filReader = new Scanner(new File("moviesTwo.tsv"));
+            Scanner filReader = new Scanner(new File("Tunnels.tsv"));
             while(filReader.hasNextLine()){
                 String line = filReader.nextLine();
+                System.out.println(line);
             }
+            filReader.close();
 
         }catch(FileNotFoundException e){
             System.out.println("fant ikke fil");
         }
+
+        System.out.println("//////////////");
+        //Stations
+        try{
+            Scanner filReader = new Scanner(new File("Stations.tsv"));
+            while(filReader.hasNextLine()){
+                String line = filReader.nextLine();
+                System.out.println(line);
+            }
+            filReader.close();
+
+        }catch(FileNotFoundException e){
+            System.out.println("fant ikke fil");
+        }
+
+        
     }
 }
 
 class Station{
-    String stjID;
-    String stasjonNavn;
-    ArrayList<String> tnIDer = new ArrayList<String>();
+    String stnID;
+    String stnName;
+    ArrayList<String> tnIDer = new ArrayList<String>(); //list of all tunnels that extends from this station
 
 }
 
-class Tunnel{
+class Tunnel{ //Egde in the graph between two nodes(stations), it only has an ID, name and travel time for the tunnel  
     String tnID;
-    String tunnelNavn;
-    int reisetid;
+    String tunnelName;
+    int travelTime;
 }
