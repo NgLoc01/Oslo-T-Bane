@@ -1,14 +1,16 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 class TBane{
-    HashMap<String, ArrayList<String[]>> graph; //a stationID with a list of tuples too other stations and tunnels they share with each other 
-    HashMap<String, Station> stations; //stationID gives correct station object 
-    HashMap<String, Tunnel> tunnels; //tunnelID gives correct tunnel object 
+    HashMap<String, ArrayList<String[]>> graph; //a stationID with a list of tuples too other stations and the tunnels they share with each other, {stationID, {[stationID, tunnelID], ...}} 
+    HashMap<String, Station> stations; //Station HashMap with station id and corresponding station, stationID gives correct station object 
+    HashMap<String, Tunnel> tunnels; //Tunnel Hashmap with tunnel id and corresponding tunnel, tunnelID gives correct tunnel object 
 
     public TBane(){
         graph = new HashMap<>();
@@ -21,11 +23,11 @@ class TBane{
     }
 
     public void graphAddTunnel(String from, String to, String tunnel){ //in the graph
-        String[] val = new String[2];
-        val[0] = to;
-        val[1] = tunnel;
+        String[] tuple = new String[2];
+        tuple[0] = to;
+        tuple[1] = tunnel;
 
-        graph.get(from).add(val);
+        graph.get(from).add(tuple);
     }
 
     public HashMap<String, ArrayList<String []>> getGraphHashMap(){
@@ -101,6 +103,24 @@ class TBane{
         }catch(FileNotFoundException e){
             System.out.println("file not found");
         }
+
+        //add edges to graph(tunnels between stations)
+        Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = tbane.getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
+        for(Map.Entry<String, ArrayList<String[]>> keyPair : graphHashMap){ //keyPair = [stationID, [list]], we iterate over alle entries in then graph HashMap
+
+            ArrayList<String> tunnelIDList = tbane.getStationsHashMap().get(keyPair.getKey()).getTunnelIDList(); //get the list of extending tunnels from a spesific station, getKey gives a stationID 
+            for(String tnID : tunnelIDList){
+                //if(tbane.getTunnelsHashMap().containsKey(tnID)){ //if tunnels from the spesific station already exist in tunnelHashMap, 
+
+                    ArrayList<Station> stationsList = tbane.getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
+                    for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
+                        if(!station.getstnID().equals(keyPair.getKey())){ //ensures that stations dont make an edge back too itself 
+                            tbane.graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap,  
+                        }
+                    }
+                //}
+            }
+        }
     }
 }
 
@@ -118,12 +138,20 @@ class Station{
     public void addTunnelStation(String tnId){
         tunnelIDList.add(tnId);
     }
+
+    public ArrayList<String> getTunnelIDList(){
+        return tunnelIDList;
+    }
+
+    public String getstnID(){
+        return stnID;
+    }
 }
 
 
 //Edge
-class Tunnel{ //Egde in the graph between two nodes(stations), it only has an ID, name and travel time for the tunnel  
-    ArrayList<Station> stations = new ArrayList<Station>(); //list of all stations that uses this tunnel
+class Tunnel{ //A tunnel is a egde in the graph and are between two stations, a tunnel has an ID, name and travel time  
+    ArrayList<Station> stationsList = new ArrayList<Station>(); //list of all stations that uses this tunnel
     String tnID;
     String tunnelName;
     int travelTime;
@@ -135,7 +163,11 @@ class Tunnel{ //Egde in the graph between two nodes(stations), it only has an ID
     }
 
     public void addStationtoTunnel(Station station){
-        stations.add(station);
+        stationsList.add(station);
+    }
+
+    public ArrayList<Station> getStationsList() {
+        return stationsList;
     }
 
 }
