@@ -94,8 +94,8 @@ class TBane{
 
                 tbane.graphAddStation(stnID); //add node (station) to graph hashmap
 
-                //System.out.println(split[0]);
-                //System.out.println(split[1] + "\n");
+                System.out.println(split[0]);
+                System.out.println(split[1] + "\n");
                 
                 Station newStation = new Station(stnID, stnName);
                 tbane.getStationsHashMap().put(stnID, newStation);
@@ -135,7 +135,7 @@ class TBane{
         You should think that the time complexecy would me O(n^2) but in reallity it not beacuse the graph is not complete
             Every station is not connected to every other station via tunnels  
         */
-
+/* 
         //add edges to graph(tunnels between stations)
         Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = tbane.getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
         for(Map.Entry<String, ArrayList<String[]>> keyPair : graphHashMap){ //keyPair = [stationID, [list]], we iterate over alle entries in then graph HashMap
@@ -152,7 +152,7 @@ class TBane{
                 //}
             }
         }
-
+*/
         //Dijkstra
         //tbane.dijkstra(startStop, endStop)
 
