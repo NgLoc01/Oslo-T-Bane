@@ -89,12 +89,13 @@ class TBane{
                 Station newStation = new Station(stnID, stnName);
                 tbane.getStationsHashMap().put(stnID, newStation);
 
-                //all connected tunnels from a station 
+                //all connected tunnels from a station
+                //here all tunnnels get added to right station and all stations to the right tunnels 
                 for (int i = 2; i < split.length; i++){
-                    newStation.addTunnelStation(split[i]); //add all tunnel with their ids to spesifics station own list over tunnels that goes from that spesifc tunnel
-                    if (tbane.getTunnelsHashMap().containsKey(split[i])){//if tunnel id exist in tunnel hashmap 
+                    newStation.addTunnelStation(split[i]); //add all tunnel with their ids to spesifics station own list over tunnels that goes from that spesifc statiom
+                    //if (tbane.getTunnelsHashMap().containsKey(split[i])){//if tunnel id exist in tunnel hashmap, (might be unnecessary) 
                         tbane.getTunnelsHashMap().get(split[i]).addStationtoTunnel(newStation); //add new station to spesific tunnel
-                    }
+                    //}
                 }
             
             }
@@ -104,6 +105,26 @@ class TBane{
             System.out.println("file not found");
         }
 
+        /*
+        EXPLANATION: adding egdes 
+        First, the graph hashmap is retrieved to iteration through. We iterater over all station ids and its list with tuples[another station, connecting tunnel]
+            We adding for one station at a time, we get the station's tunnel list (all tunnel this station uses) 
+                iterate over all tunnles for spesifc station 
+                    get spesific tunnels own station list
+                        iterate over the spesific tunnels own station list
+                            now have all the information we need to add a egde
+                                Each station in a tunnels internal station list uses the same tunnel as the station we curently iteration on
+                                it therfore an egde and can add the egde to the grpah hashmap
+                                    ["Station", {["diffrent station", "shared tunnel"], ["diffrent station", "shared tunnel"], ...}]
+                
+        Summed up, for every station in graph hashmap, get their tunnel list, then go trought each of those tunnels to their own station list,
+        every station that is on a list shares a tunnel with the first station and have an egde                  
+        
+        TIME COMPLEXITY:
+        You should think that the time complexecy would me O(n^2) but in reallity it not beacuse the graph is not complete
+            Every station is not connected to every other station via tunnels  
+        */
+
         //add edges to graph(tunnels between stations)
         Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = tbane.getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
         for(Map.Entry<String, ArrayList<String[]>> keyPair : graphHashMap){ //keyPair = [stationID, [list]], we iterate over alle entries in then graph HashMap
@@ -111,16 +132,16 @@ class TBane{
             ArrayList<String> tunnelIDList = tbane.getStationsHashMap().get(keyPair.getKey()).getTunnelIDList(); //get the list of extending tunnels from a spesific station, getKey gives a stationID 
             for(String tnID : tunnelIDList){
                 //if(tbane.getTunnelsHashMap().containsKey(tnID)){ //if tunnels from the spesific station already exist in tunnelHashMap, 
-
                     ArrayList<Station> stationsList = tbane.getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
                     for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
                         if(!station.getstnID().equals(keyPair.getKey())){ //ensures that stations dont make an edge back too itself 
-                            tbane.graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap,  
+                            tbane.graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
                         }
                     }
                 //}
             }
         }
+
     }
 }
 
