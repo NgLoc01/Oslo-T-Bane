@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 class TBane{
-    HashMap<String, ArrayList<String[]>> graph; //a stationID with a list of tuples too other stations and the tunnels they share with each other, {stationID, {[stationID, tunnelID], ...}} 
-    HashMap<String, Station> stations; //Station HashMap with station id and corresponding station, stationID gives correct station object 
-    HashMap<String, Tunnel> tunnels; //Tunnel Hashmap with tunnel id and corresponding tunnel, tunnelID gives correct tunnel object 
+    private HashMap<String, ArrayList<String[]>> graph; //a stationID with a list of tuples too other stations and the tunnels they share with each other, {stationID, {[stationID, tunnelID], ...}} 
+    private HashMap<String, Station> stations; //Station HashMap with station id and corresponding station, stationID gives correct station object 
+    private HashMap<String, Tunnel> tunnels; //Tunnel Hashmap with tunnel id and corresponding tunnel, tunnelID gives correct tunnel object 
 
     public TBane(){
         graph = new HashMap<>();
@@ -20,7 +20,7 @@ class TBane{
     }
 
     public void graphAddStation(String station){ //in the graph
-        graph.put(station, new ArrayList<>());
+        getGraphHashMap().put(station, new ArrayList<>());
     }
 
     public void graphAddTunnel(String from, String to, String tunnel){ //in the graph
@@ -28,7 +28,7 @@ class TBane{
         tuple[0] = to;
         tuple[1] = tunnel;
 
-        graph.get(from).add(tuple);
+        getGraphHashMap().get(from).add(tuple);
     }
 
     public HashMap<String, ArrayList<String []>> getGraphHashMap(){
@@ -43,24 +43,7 @@ class TBane{
         return tunnels;
     }
 
-    public void dijkstra(String startStation, String endStation){
-        HashMap<String, Float> distance = new HashMap<>();
-        PriorityQueue<Station> queue = new PriorityQueue<>();
-        HashMap<String, String[]> path = new HashMap<>();  
-
-        for (String key : graph.keySet()) {  // empty map with ∞ as default
-            distance.put(key, Float.MAX_VALUE);
-        }
-
-        //while(!queue.isEmpty()){
-        
-        //}
-    }
-
-
-    public static void main(String[] args){
-        TBane tbane = new TBane();
-
+    public void readTsvFiles(){
         //Tunnels - The tunnels has to be added into the tunnels hashmap first so i can be used when making stations 
         //Reading Tunnels.tsv
         try{
@@ -78,7 +61,7 @@ class TBane{
                 //System.out.println(split[2] + "\n");
 
                 Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime); //make tunnel
-                tbane.getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
+                getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
             }
             filReader.close();
 
@@ -96,32 +79,30 @@ class TBane{
                 String stnID = split[0];
                 String stnName = split[1];
 
-                tbane.graphAddStation(stnID); //add node (station) to graph hashmap
+                graphAddStation(stnID); //add node (station) to graph hashmap
 
                 //System.out.println(split[0]);
                 //System.out.println(split[1] + "\n");
                 
                 Station newStation = new Station(stnID, stnName);
-                tbane.getStationsHashMap().put(stnID, newStation);
+                getStationsHashMap().put(stnID, newStation);
 
                 //all connected tunnels from a station
                 //here all tunnnels get added to right station and all stations to the right tunnels 
                 for (int i = 2; i < split.length; i++){
                     newStation.addTunnelStation(split[i]); //add all tunnel with their ids to spesifics station own list over tunnels that goes from that spesifc statiom
-                    //if (tbane.getTunnelsHashMap().containsKey(split[i])){//if tunnel id exist in tunnel hashmap, (might be unnecessary) 
-                        tbane.getTunnelsHashMap().get(split[i]).addStationtoTunnel(newStation); //add new station to spesific tunnel
-                    //}
+                    getTunnelsHashMap().get(split[i]).addStationtoTunnel(newStation); //add new station to spesific tunnel
                 }
-            
             }
             filReader.close();
 
         }catch(FileNotFoundException e){
             System.out.println("file not found");
         }
+    }
 
-        /*
-        EXPLANATION: adding egdes 
+    public void addEgdes(){
+        /* EXPLANATION: adding egdes 
         First, the graph hashmap is retrieved to iteration through. We iterater over all station ids and its list with tuples[another station, connecting tunnel]
             We adding for one station at a time, we get the station's tunnel list (all tunnel this station uses) 
                 iterate over all tunnles for spesifc station 
@@ -141,23 +122,42 @@ class TBane{
         */
 
         //add edges to graph(tunnels between stations)
-        Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = tbane.getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
+        Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
         for(Map.Entry<String, ArrayList<String[]>> keyPair : graphHashMap){ //keyPair = [stationID, [list]], we iterate over alle entries in then graph HashMap
 
-            ArrayList<String> tunnelIDList = tbane.getStationsHashMap().get(keyPair.getKey()).getTunnelIDList(); //get the list of extending tunnels from a spesific station, getKey gives a stationID 
+            ArrayList<String> tunnelIDList = getStationsHashMap().get(keyPair.getKey()).getTunnelIDList(); //get the list of extending tunnels from a spesific station, getKey gives a stationID 
             for(String tnID : tunnelIDList){
-                //if(tbane.getTunnelsHashMap().containsKey(tnID)){ //if tunnels from the spesific station already exist in tunnelHashMap, 
-                    ArrayList<Station> stationsList = tbane.getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
-                    for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
-                        if(!station.getstnID().equals(keyPair.getKey())){ //ensures that stations dont make an edge back too itself 
-                            tbane.graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
-                        }
+
+                ArrayList<Station> stationsList = getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
+                for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
+                    
+                    if(!station.getstnID().equals(keyPair.getKey())){ //ensures that stations dont make an edge back too itself 
+                        graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
                     }
-                //}
+                }
             }
         }
+    }
 
-        //Dijkstra
+    public void dijkstra(String startStation, String endStation){
+        HashMap<String, Float> distance = new HashMap<>();
+        PriorityQueue<Station> queue = new PriorityQueue<>();
+        HashMap<String, String[]> path = new HashMap<>();  
+
+        for (String key : graph.keySet()) {  //empty map with ∞ as default
+            distance.put(key, Float.MAX_VALUE);
+        }
+
+        //while(!queue.isEmpty()){
+        
+        //}
+    }
+
+
+    public static void main(String[] args){
+        TBane tbane = new TBane();
+        tbane.readTsvFiles();
+        tbane.addEgdes();
         //tbane.dijkstra(startStop, endStop)
 
     }
