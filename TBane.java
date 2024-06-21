@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
 import java.io.File;
@@ -40,6 +41,16 @@ class TBane{
 
     public HashMap<String, Tunnel> getTunnelsHashMap(){ //used when reading tsv files
         return tunnels;
+    }
+
+    public void dijkstra(String startStation, String endStation){
+        HashMap<String, Float> distance = new HashMap<>();
+        PriorityQueue<Station> queue = new PriorityQueue<>();
+        HashMap<String, String[]> path = new HashMap<>();  
+
+        //while(!queue.isEmpty()){
+        
+        //}
     }
 
 
@@ -142,7 +153,11 @@ class TBane{
             }
         }
 
+        //Dijkstra
+        //tbane.dijkstra(startStop, endStop)
+
     }
+
 }
 
 //Node
