@@ -140,17 +140,31 @@ class TBane{
     }
 
     public void dijkstra(String startStation, String endStation){
-        HashMap<String, Float> distance = new HashMap<>();
-        PriorityQueue<Station> queue = new PriorityQueue<>();
-        HashMap<String, String[]> path = new HashMap<>();  
-
-        for (String key : graph.keySet()) {  //empty map with ∞ as default
+        HashMap<String, Float> distance = new HashMap<>(); //empty map with ∞ as default
+        for (String key : graph.keySet()) {  
             distance.put(key, Float.MAX_VALUE);
         }
 
-        //while(!queue.isEmpty()){
-        
-        //}
+        PriorityQueue<Station> queue = new PriorityQueue<>();
+        getStationsHashMap().get(startStation).stationSetDist((float) 0); //set station's dist variable to 0
+        queue.offer(getStationsHashMap().get(startStation)); //queue ← singleton priority queue containing s with priority 0
+
+        distance.put(startStation, (float) 0); //dist[s] ← 0
+
+        HashMap<String, String[]> path = new HashMap<>();  
+
+
+        while(!queue.isEmpty()){
+            Station station = queue.poll();
+
+            //for(){
+
+                //float c = dist[u] + w(u, v)  
+
+                //if(c < dist[v]){
+                //}
+            //}
+        }
     }
 
 
