@@ -157,13 +157,23 @@ class TBane{
         while(!queue.isEmpty()){
             Station station = queue.poll();
 
-            //for(){
+            //get the ArrayList of tuple for spesific station in the graph hashmap
+            //this is to iterate through all neighboring stations in the grapth to the station that just got taken from the priority queue
+            for(String[] tuple : getGraphHashMap().get(station.getstnID())){ 
+                String nextStationID = tuple[0]; 
+                String tunnelID = tuple[1];
+                Tunnel tunnel = getTunnelsHashMap().get(tunnelID);
 
-                //float c = dist[u] + w(u, v)  
+                float c = distance.get(station.getstnID()) + getTunnelsHashMap().get(tunnelID).getTravelTime(); //c ← dist[u] + w(u, v), distance from a station + tunnels trave time 
 
-                //if(c < dist[v]){
-                //}
-            //}
+                if(c < distance.get(nextStationID)){ //triggers only if its a shorter way from out of all neighboring stations to the station that just got taken from the priority queue 
+                    distance.put(nextStationID, c);//dist[v] ← c
+
+                    getStationsHashMap().get(nextStationID).stationSetDist(c); //insert(queue, v) v har ny prioritet 
+                    queue.offer(getStationsHashMap().get(nextStationID)); //put the new shortes path back in the queue to check their neighboring stations for a shorter path
+
+                }
+            }
         }
     }
 
@@ -227,6 +237,10 @@ class Tunnel{ //A tunnel is a egde in the graph and are between two stations, a 
 
     public ArrayList<Station> getStationsList() {
         return stationsList;
+    }
+
+    public int getTravelTime(){
+        return travelTime;
     }
 
 }
