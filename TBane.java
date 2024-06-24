@@ -151,7 +151,8 @@ class TBane{
 
         distance.put(startStation, (float) 0); //dist[s] ← 0
 
-        HashMap<String, String[]> path = new HashMap<>();  
+        HashMap<String, String[]> path = new HashMap<>();//dijkstra gives the shortes route from one node to all other nodes, we only need one route 
+        path.put(startStation, null);  
 
 
         while(!queue.isEmpty()){
@@ -172,6 +173,11 @@ class TBane{
                     getStationsHashMap().get(nextStationID).stationSetDist(c); //insert(queue, v) v har ny prioritet 
                     queue.offer(getStationsHashMap().get(nextStationID)); //put the new shortes path back in the queue to check their neighboring stations for a shorter path
 
+                    String[] stationInfo = new String[2];
+                    stationInfo[0] = station.getstnID();
+                    stationInfo[1] = tunnel.gettnID();
+
+                    path.put(nextStationID, stationInfo);
                 }
             }
         }
@@ -241,6 +247,10 @@ class Tunnel{ //A tunnel is a egde in the graph and are between two stations, a 
 
     public int getTravelTime(){
         return travelTime;
+    }
+
+    public String gettnID(){
+        return tnID;
     }
 
 }
