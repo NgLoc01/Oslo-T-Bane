@@ -188,14 +188,14 @@ class TBane{
         TBane tbane = new TBane();
         tbane.readTsvFiles();
         tbane.addEgdes();
-        //tbane.dijkstra(startStop, endStop)
+        tbane.dijkstra("1STJ01", "1STJ02");
 
     }
 
 }
 
 //Node
-class Station{
+class Station implements Comparable <Station>{
     ArrayList<String> tunnelIDList = new ArrayList<String>(); //list of all tunnels that extends from this station
     String stnID;
     String stnName;
@@ -220,6 +220,12 @@ class Station{
 
     public void stationSetDist(float setDist){
         dist = setDist;
+    }
+
+    @Override 
+    public int compareTo(Station other){
+       return (int)dist - (int)other.dist;
+    
     }
 }
 
