@@ -139,7 +139,10 @@ class TBane{
         }
     }
 
-    public void dijkstra(String startStation, String endStation){
+    public void dijkstra(String[] startAndEnd){
+        String startStation = startAndEnd[0];
+        String desinationStation = startAndEnd[1]; 
+        
         HashMap<String, Float> distance = new HashMap<>(); //empty map with ∞ as default
         for (String key : graph.keySet()) {  
             distance.put(key, Float.MAX_VALUE);
@@ -181,20 +184,41 @@ class TBane{
                 }
             }
         }
+        
+        printPath(path, startStation, desinationStation);
     }
 
-    public void printPath(){
+    public String[] askRoute(){
+        Scanner scan = new Scanner(System.in);
 
+        System.out.print("Skriv start stasjon: ");
+        String start = scan.nextLine();
+
+        System.out.print("Skriv destinasjons stasjon: ");
+        String end = scan.nextLine();
+
+        String[] startAndEnd = new String[2];
+        startAndEnd[0] = start;
+        startAndEnd[1] = end;
+
+        scan.close();
+        return startAndEnd;
+    }
+
+    public void printPath(HashMap<String, String[]> path, String startStation, String desinationStation){
+        
     }
 
 
     public static void main(String[] args){
+        //Build the tbane 
         TBane tbane = new TBane();
         tbane.readTsvFiles();
         tbane.addEgdes();
-        tbane.dijkstra("1STJ01", "1STJ02");
 
-        
+        String[] route = tbane.askRoute();
+
+        tbane.dijkstra(route);
     }
 
 }
