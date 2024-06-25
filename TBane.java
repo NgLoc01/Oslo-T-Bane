@@ -183,6 +183,10 @@ class TBane{
         }
     }
 
+    public void printPath(){
+
+    }
+
 
     public static void main(String[] args){
         TBane tbane = new TBane();
@@ -190,6 +194,7 @@ class TBane{
         tbane.addEgdes();
         tbane.dijkstra("1STJ01", "1STJ02");
 
+        
     }
 
 }
@@ -222,9 +227,13 @@ class Station implements Comparable <Station>{
         dist = setDist;
     }
 
+    public float getDist(){
+        return dist;
+    }
+
     @Override 
     public int compareTo(Station other){
-       return (int)dist - (int)other.dist;
+       return (int)dist - (int)other.getDist();
     
     }
 }
