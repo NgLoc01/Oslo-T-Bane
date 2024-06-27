@@ -3,10 +3,10 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Stack;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 class TBane{
     private HashMap<String, ArrayList<String[]>> graph; //a stationID with a list of tuples too other stations and the tunnels they share with each other, {stationID, {[stationID, tunnelID], ...}} 
@@ -131,15 +131,20 @@ class TBane{
                 ArrayList<Station> stationsList = getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
                 for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
                     
-                    if(!station.getstnID().equals(keyPair.getKey())){ //ensures that stations dont make an edge back too itself 
+                    //if(!(station.getstnID().equals(keyPair.getKey()) ) ){ //ensures that stations dont make an edge back too itself 
                         graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
-                    }
+                    //}
                 }
             }
         }
     }
 
     public void dijkstra(String[] startAndEnd){
+getGraphHashMap().forEach((key, value) ->{ 
+    System.out.println("Key: " + key + ", Value: " + value);
+    }
+);
+
         String startStation = startAndEnd[0];
         String desinationStation = startAndEnd[1]; 
         
@@ -154,8 +159,8 @@ class TBane{
 
         distance.put(startStation, (float) 0); //dist[s] ← 0
 
-        HashMap<String, String[]> path = new HashMap<>();//dijkstra gives the shortes route from one node to all other nodes, we only need one route 
-        path.put(startStation, null);  
+        HashMap<String, String[]> allPaths = new HashMap<>();//dijkstra gives the shortes route from one node to all other nodes, we only need one route 
+        allPaths.put(startStation, null);  
 
 
         while(!queue.isEmpty()){
@@ -180,12 +185,42 @@ class TBane{
                     stationInfo[0] = station.getstnID();
                     stationInfo[1] = tunnel.gettnID();
 
-                    path.put(nextStationID, stationInfo);
+                    allPaths.put(nextStationID, stationInfo); //gives the shortest path from one node to all other nodes in the graph
                 }
             }
         }
+
+        printPath(allPaths, startStation, desinationStation);
+    }
+
+    public void printPath(HashMap<String, String[]> allPaths, String startStation, String desinationStation){
+allPaths.forEach((key, value) ->{ 
+        System.out.println("Key: " + key + ", Value: " + value);
+    }
+);
         
-        printPath(path, startStation, desinationStation);
+
+        String current = desinationStation;
+        Stack<String> stack = new Stack<String>(); //stack to reverse the path given to give it in right chronological order 
+
+        //Traversing from our destination and backward to find the one path we want 
+        while(current != null){ //we are working from end to start backward to find the only one path, the 
+            if (allPaths.get(current) != null){
+                stack.push("===[ " + getStationsHashMap().get(current).getstnName() + "] ===> 11STJ01");
+                current = allPaths.get(current)[0]; //allPaths.get(current)[0] is nextStationID
+            }else{//start station will be the last added to the stack and the first on read
+                stack.push("===[ " + getStationsHashMap().get(startStation).getstnName() + "] ===> 1");
+                break;
+            }
+        }
+
+        //Printing out the path we want
+        while (!stack.empty()){
+            System.out.println(stack.pop()); 
+            //total tid?
+
+        }
+
     }
 
     public String[] askRoute(){
@@ -205,20 +240,15 @@ class TBane{
         return startAndEnd;
     }
 
-    public void printPath(HashMap<String, String[]> path, String startStation, String desinationStation){
-        
-    }
-
-
+    
     public static void main(String[] args){
         //Build the tbane 
         TBane tbane = new TBane();
         tbane.readTsvFiles();
         tbane.addEgdes();
 
-        String[] route = tbane.askRoute();
-
-        tbane.dijkstra(route);
+        //Find the shortes route
+        tbane.dijkstra(tbane.askRoute());
     }
 
 }
@@ -247,6 +277,10 @@ class Station implements Comparable <Station>{
         return stnID;
     }
 
+    public String getstnName(){
+        return stnName;
+    }
+
     public void stationSetDist(float setDist){
         dist = setDist;
     }
@@ -255,8 +289,8 @@ class Station implements Comparable <Station>{
         return dist;
     }
 
-    @Override 
-    public int compareTo(Station other){
+    @Override //necessary to use PriorityQueue 
+    public int compareTo(Station other){ 
        return (int)dist - (int)other.getDist();
     
     }
