@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -60,8 +61,13 @@ class TBane{
                 //System.out.println(split[1]);
                 //System.out.println(split[2] + "\n");
 
-                Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime); //make tunnel
-                getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
+                if(split[0].charAt(0) != split[0].charAt(1)){ //Example"12TN1812 Majorstuen-Nationaltheatret 1000" transitionTunnel
+                    Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime, true); //make tunnel
+                    getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
+                }else{
+                    Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime, false); //make tunnel
+                    getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
+                }               
             }
             filReader.close();
 
@@ -99,6 +105,8 @@ class TBane{
         }catch(FileNotFoundException e){
             System.out.println("file not found");
         }
+
+
     }
 
     public void addEgdes(){
@@ -124,26 +132,56 @@ class TBane{
         //add edges to graph(tunnels between stations)
         Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
         for(Map.Entry<String, ArrayList<String[]>> keyPair : graphHashMap){ //keyPair = [stationID, [list]], we iterate over alle entries in then graph HashMap
-
             ArrayList<String> tunnelIDList = getStationsHashMap().get(keyPair.getKey()).getTunnelIDList(); //get the list of extending tunnels from a spesific station, getKey gives a stationID 
             for(String tnID : tunnelIDList){
 
+
+//System.out.println(tnID + " " + getTunnelsHashMap().get(tnID).getStationsList().size());
+/* 
+for(Station station : getTunnelsHashMap().get(tnID).getStationsList()){
+    System.out.print(station.getstnID());
+}
+
+System.out.println(" ");
+*/ 
+                
+                //System.out.println(tnID);
                 ArrayList<Station> stationsList = getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
                 for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
-                    
+                    //System.out.println(station.stnName);
                     //if(!(station.getstnID().equals(keyPair.getKey()) ) ){ //ensures that stations dont make an edge back too itself 
-                        graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
+                    graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
+                    //System.out.println(keyPair.getKey() + " " + station.getstnID() + " " + tnID);
+
                     //}
                 }
+                //System.out.println("");
             }
+            //System.out.println("");
         }
     }
 
     public void dijkstra(String[] startAndEnd){
+AtomicInteger count = new AtomicInteger(0);
+//getStationsHashMap().forEach((key, value) -> {;
+//getTunnelsHashMap().forEach((key, value) ->{ 
+/* 
 getGraphHashMap().forEach((key, value) ->{ 
-    System.out.println("Key: " + key + ", Value: " + value);
+    System.out.print("Key: " + key + ", Value: { ");
+    for (String[] array : value) {
+        System.out.print("[ ");
+        for (String str : array) {
+            System.out.print(str + " ");
+        }
+        System.out.print("], ");
+    }
+    System.out.println(" }");
+    count.incrementAndGet();
     }
 );
+
+System.out.println(count.get());
+*/
 
         String startStation = startAndEnd[0];
         String desinationStation = startAndEnd[1]; 
@@ -194,10 +232,12 @@ getGraphHashMap().forEach((key, value) ->{
     }
 
     public void printPath(HashMap<String, String[]> allPaths, String startStation, String desinationStation){
+/* 
 allPaths.forEach((key, value) ->{ 
         System.out.println("Key: " + key + ", Value: " + value);
-    }
+}
 );
+*/
         
 
         String current = desinationStation;
@@ -303,11 +343,13 @@ class Tunnel{ //A tunnel is a egde in the graph and are between two stations, a 
     String tnID;
     String tunnelName;
     int travelTime;
+    boolean transitionTunnel;
 
-    public Tunnel(String id, String name, String time){
+    public Tunnel(String id, String name, String time, boolean check){
         tnID = id;
         tunnelName = name;
         travelTime = Integer.parseInt(time);
+        transitionTunnel = check;
     }
 
     public void addStationtoTunnel(Station station){

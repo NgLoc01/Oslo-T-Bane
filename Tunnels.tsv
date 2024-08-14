@@ -16,58 +16,64 @@
 11TN1617 Steinerud-Frøen 2
 11TN1718 Frøen-Majorstuen 2
 11TN1819 Majorstuen-Nationaltheatret 2
-12TN1812 Majorstuen-Nationaltheatret 1000
-13TN1817 Majorstuen-Nationaltheatret 1000
-14TN1822 Majorstuen-Nationaltheatret 1000
-15TN1811 Majorstuen-Nationaltheatret 1000
+12TN1811 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
+13TN1816 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
+14TN1821 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
+15TN1810 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
+
 11TN1920 Nationaltheatret-Stortinget 2
-12TN1913 Nationaltheatret-Stortinget 1000
-13TN1918 Nationaltheatret-Stortinget 1000
-14TN1923 Nationaltheatret-Stortinget 1000
-15TN1912 Nationaltheatret-Stortinget 1000
+12TN1913 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
+13TN1918 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
+14TN1923 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
+15TN1912 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 11TN2021 Stortinget-Jernbanetorget 1
-12TN2014 Stortinget-Jernbanetorget 1000
-13TN2019 Stortinget-Jernbanetorget 1000
-14TN2024 Stortinget-Jernbanetorget 1000
-15TN2013 Stortinget-Jernbanetorget 1000
+12TN2014 Stortinget-Jernbanetorget 1000 TRANSITION "TUNNEL"
+13TN2019 Stortinget-Jernbanetorget 1000 TRANSITION "TUNNEL"
+14TN2024 Stortinget-Jernbanetorget 1000 TRANSITION "TUNNEL"
+15TN2013 Stortinget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 11TN2122 Jernbanetorget-Grønland 1
-12TN2115 Jernbanetorget-Grønland 1000
-13TN2120 Jernbanetorget-Grønland 1000
-14TN2125 Jernbanetorget-Grønland 1000
-15TN2114 Jernbanetorget-Grønland 1000
+12TN2115 Jernbanetorget-Grønland 1000 TRANSITION "TUNNEL"
+13TN2120 Jernbanetorget-Grønland 1000 TRANSITION "TUNNEL"
+14TN2125 Jernbanetorget-Grønland 1000 TRANSITION "TUNNEL"
+15TN2114 Jernbanetorget-Grønland 1000 TRANSITION "TUNNEL"
 11TN2223 Grønland-Tøyen 3
-12TN2216 Grønland-Tøyen 1000
-13TN2221 Grønland-Tøyen 1000
-14TN2226 Grønland-Tøyen 1000
-15TN2215 Grønland-Tøyen 1000
+12TN2216 Grønland-Tøyen 1000 TRANSITION "TUNNEL"
+13TN2221 Grønland-Tøyen 1000 TRANSITION "TUNNEL"
+14TN2226 Grønland-Tøyen 1000 TRANSITION "TUNNEL"
+15TN2215 Grønland-Tøyen 1000 TRANSITION "TUNNEL"
+
 11TN2324 Tøyen-Ensjø 1
-12TN2317 Tøyen-Ensjø 1000
-13TN2322 Tøyen-Ensjø 1000
-14TN2327 Tøyen-Ensjø 1000
+12TN2317 Tøyen-Ensjø 1000 TRANSITION "TUNNEL"
+13TN2322 Tøyen-Ensjø 1000 TRANSITION "TUNNEL"
+14TN2327 Tøyen-Ensjø 1000 TRANSITION "TUNNEL"
+15TN2315 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
+
 11TN2425 Ensjø-Helsfyr 2
-12TN2418 Ensjø-Helsfyr 1000
-13TN2423 Ensjø-Helsfyr 1000
-14TN2428 Ensjø-Helsfyr 1000
+12TN2418 Ensjø-Helsfyr 1000 TRANSITION "TUNNEL"
+13TN2423 Ensjø-Helsfyr 1000 TRANSITION "TUNNEL"
+14TN2428 Ensjø-Helsfyr 1000 TRANSITION "TUNNEL"
 11TN2526 Helsfyr-Brynseng 2
-12TN2519 Helsfyr-Brynseng 1000
-13TN2524 Helsfyr-Brynseng 1000
-14TN2529 Helsfyr-Brynseng 1000
+12TN2519 Helsfyr-Brynseng 1000 TRANSITION "TUNNEL"
+13TN2524 Helsfyr-Brynseng 1000 TRANSITION "TUNNEL"
+14TN2529 Helsfyr-Brynseng 1000 TRANSITION "TUNNEL"
 11TN2627 Brynseng-Høyenhall 1
-14TN2630 Brynseng-Høyenhall 1000
+14TN2630 Brynseng-Høyenhall 1000 TRANSITION "TUNNEL"
 11TN2728 Høyenhall-Manglerud 2
-14TN2731 Høyenhall-Manglerud 1000
+14TN2731 Høyenhall-Manglerud 1000 TRANSITION "TUNNEL"
 11TN2829 Manglerud-Ryen 1
-14TN2832 Manglerud-Ryen 1000
+14TN2832 Manglerud-Ryen 1000 TRANSITION "TUNNEL"
 11TN2930 Ryen-Brattlikollen 2
-14TN2933 Ryen-Brattlikollen 1000
+14TN2933 Ryen-Brattlikollen 1000 TRANSITION "TUNNEL"
 11TN3031 Brattlikollen-Karlsrud 1
-14TN3034 Brattlikollen-Karlsrud 1000
+14TN3034 Brattlikollen-Karlsrud 1000 TRANSITION "TUNNEL"
 11TN3132 Karlsrud-Lambertseter 2
-14TN3135 Karlsrud-Lambertseter 1000
+14TN3135 Karlsrud-Lambertseter 1000 TRANSITION "TUNNEL"
 11TN3233 Lambertseter-Munkelia 1
-14TN3236 Lambertseter-Munkelia 1000
+14TN3236 Lambertseter-Munkelia 1000 TRANSITION "TUNNEL"
 11TN3334 Munkelia-Bergkrystallen 3
-14TN3337 Munkelia-Bergkrystallen 1000
+14TN3337 Munkelia-Bergkrystallen 1000 TRANSITION "TUNNEL"
+
+
 22TN0102 Østerås-Lijordet 1
 22TN0203 Lijordet-Eiksmarka 1
 22TN0304 Eiksmarka-Ekraveien 2
