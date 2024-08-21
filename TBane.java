@@ -57,18 +57,28 @@ class TBane{
                 String tunnelName = split[1];
                 String travelTime = split[2]; 
 
+                /////////// TESTS FOR OUTPUT ///////////
                 //System.out.println(split[0]);
                 //System.out.println(split[1]);
                 //System.out.println(split[2] + "\n");
+                /////////// TESTS FOR OUTPUT ///////////
 
                 if(split[0].charAt(0) != split[0].charAt(1)){ //Example"12TN1812 Majorstuen-Nationaltheatret 1000" transitionTunnel
-                    Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime, true); //make tunnel
+                    Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime, true); //make normal tunnel
                     getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
                 }else{
-                    Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime, false); //make tunnel
+                    Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime, false); //make transitional tunnel
                     getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
-                }               
+                }             
             }
+            /////////// TESTS FOR OUTPUT ///////////
+            /* 
+            //to check output for TunnelHashmap
+            for (String key : getTunnelsHashMap().keySet()) { 
+                System.out.println("Key: " + key + ", Value: " + getTunnelsHashMap().get(key).getTunnelName());
+            }
+            */
+            /////////// TESTS FOR OUTPUT ///////////
             filReader.close();
 
         }catch(FileNotFoundException e){
@@ -87,8 +97,10 @@ class TBane{
 
                 graphAddStation(stnID); //add node (station) to graph hashmap
 
+                /////////// TESTS FOR OUTPUT ///////////
                 //System.out.println(split[0]);
                 //System.out.println(split[1] + "\n");
+                /////////// TESTS FOR OUTPUT ///////////
                 
                 Station newStation = new Station(stnID, stnName);
                 getStationsHashMap().put(stnID, newStation);
@@ -100,11 +112,45 @@ class TBane{
                     getTunnelsHashMap().get(split[i]).addStationtoTunnel(newStation); //add new station to spesific tunnel
                 }
             }
+            /////////// TESTS FOR OUTPUT ///////////
+            //to check output for StationHashmap
+            /* 
+            for (String key : getStationsHashMap().keySet()) { //to check output for TunnelHashmap
+                System.out.println("Key: " + key + ", Value: " + getStationsHashMap().get(key).getstnName());
+            }
+            */
+
+            //to check output for GraphHashmap
+            /* 
+            for (String key : getGraphHashMap().keySet()) { //to check output for TunnelHashmap
+                System.out.println("Key: " + key + ", Value: " + getGraphHashMap().get(key));
+            }
+            */
+
+            //to check output for each Station
+            /* 
+            for (String key : getStationsHashMap().keySet()) { //to check output for TunnelHashmap
+                System.out.println("Key: " + key + ", Value: " + getStationsHashMap().get(key).getTunnelIDList());
+            }
+            */
+            
+            //to check output for each Tunnel
+            /* 
+            for (String key : getTunnelsHashMap().keySet()) {
+                System.out.print("Key: " + key + ", Value: [");
+                for (Station station : getTunnelsHashMap().get(key).getStationsList()) {
+                    System.out.print(station.getstnID() + " "); // Or use station.getstnName()
+                }
+                System.out.println("]");
+            }
+            */
+            /////////// TESTS FOR OUTPUT ///////////
             filReader.close();
 
         }catch(FileNotFoundException e){
             System.out.println("file not found");
         }
+        
 
 
     }
@@ -283,10 +329,10 @@ allPaths.forEach((key, value) ->{
         //Build the tbane 
         TBane tbane = new TBane();
         tbane.readTsvFiles();
-        tbane.addEgdes();
+        //tbane.addEgdes();
 
         //Find the shortes route
-        tbane.dijkstra(tbane.askRoute());
+        //tbane.dijkstra(tbane.askRoute());
     }
 
 }
@@ -364,6 +410,10 @@ class Tunnel{ //A tunnel is a egde in the graph and are between two stations, a 
 
     public String gettnID(){
         return tnID;
+    }
+
+    public String getTunnelName(){
+        return tunnelName;
     }
 
 }
