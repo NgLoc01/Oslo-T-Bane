@@ -288,27 +288,39 @@ allPaths.forEach((key, value) ->{
         System.out.println("Key: " + key + ", Value: " + value);
 }
 );
-*/
+*/ 
+        int totalTime = 0;
         String current = desinationStation;
         Stack<String> stack = new Stack<String>(); //stack to reverse the path given to give it in right chronological order 
 
         //Traversing from our destination and backward to find the one path we want 
         while(current != null){ //we are working from end to start backward to find the only one path, the 
             if (allPaths.get(current) != null){
-                stack.push("===[ " + getStationsHashMap().get(current).getstnName() + "] ===> 11STJ01");
+
+                stack.push("===[" + getStationsHashMap().get(current).getstnID() + " " + getStationsHashMap().get(current).getstnName() + "]===> ");
+                totalTime += getTunnelsHashMap().get(allPaths.get(current)[1]).getTravelTime();;
+
+                if(getStationsHashMap().get(current).getstnID().charAt(0) != allPaths.get(current)[0].charAt(0)){
+                    stack.push("\nBytt til Linje " + getStationsHashMap().get(current).getstnID().charAt(0));
+                }
+                
                 current = allPaths.get(current)[0]; //allPaths.get(current)[0] is nextStationID
+
+        
             }else{//start station will be the last added to the stack and the first on read
-                stack.push("===[ " + getStationsHashMap().get(startStation).getstnName() + "] ===> 1");
+                stack.push("===[" + getStationsHashMap().get(current).getstnID() + " " + getStationsHashMap().get(startStation).getstnName() + "]===>");
+                stack.push("Linje " + getStationsHashMap().get(current).getstnID().charAt(0));
                 break;
             }
         }
 
         //Printing out the path we want
+        System.out.println(" ");
         while (!stack.empty()){
             System.out.println(stack.pop()); 
             //total tid?
-
         }
+        System.out.println("\nTotal time: " + totalTime + "min");
 
     }
 
@@ -337,7 +349,7 @@ allPaths.forEach((key, value) ->{
         tbane.addEgdes();
 
         //Find the shortes route
-        //tbane.dijkstra(tbane.askRoute());
+        tbane.dijkstra(tbane.askRoute());
     }
 
 }
