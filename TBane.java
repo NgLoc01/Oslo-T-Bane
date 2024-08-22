@@ -128,10 +128,11 @@ class TBane{
             */
             
             //to check output for each Station
-            
+            /* 
             for (String key : getStationsHashMap().keySet()) { //to check output for TunnelHashmap
                 System.out.println("Key: " + key + ", Value: " + getStationsHashMap().get(key).getTunnelIDList());
             }
+            */
             
             
             //to check output for each Tunnel
@@ -175,24 +176,12 @@ class TBane{
         //add edges to graph(tunnels between stations)
         Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
         for(Map.Entry<String, ArrayList<String[]>> keyPair : graphHashMap){ //keyPair = [stationID, [list]], we iterate over alle entries in then graph HashMap
+            
             ArrayList<String> tunnelIDList = getStationsHashMap().get(keyPair.getKey()).getTunnelIDList(); //get the list of extending tunnels from a spesific station, getKey gives a stationID 
             for(String tnID : tunnelIDList){
 
-//to check output for ...
-/* 
-System.out.println(tnID + " " + getTunnelsHashMap().get(tnID).getStationsList().size());
-
-for(Station station : getTunnelsHashMap().get(tnID).getStationsList()){
-    System.out.print(station.getstnID() + " ");
-}
-
-System.out.println(" ");
-*/
-               
-                //System.out.println(tnID);
                 ArrayList<Station> stationsList = getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
                 for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
-                    //System.out.println(station.stnName);
                     if(!(station.getstnID().equals(keyPair.getKey()) ) ){ //ensures that stations dont make an edge back too itself 
                         
                         /// TEST ///
@@ -205,8 +194,6 @@ System.out.println(" ");
                          /// TEST ///
 
                         graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
-                    //System.out.println(keyPair.getKey() + " " + station.getstnID() + " " + tnID);
-
                     }
                 }
             }
@@ -218,12 +205,11 @@ System.out.println(" ");
            
 
             for (String[] array : getGraphHashMap().get(key)) {
-                System.out.print(array[0] + " " + array[1] + " " + array.length); // Or use station.getstnName()
+                System.out.print(" [" + array[0] + ", " + array[1] + "]"); // Or use station.getstnName()
             }
             System.out.println("]");
         }
-        */
-        
+        */ 
     }
 
     public void dijkstra(String[] startAndEnd){
@@ -434,5 +420,4 @@ class Tunnel{ //A tunnel is a egde in the graph and are between two stations, a 
     public String getTunnelName(){
         return tunnelName;
     }
-
 }

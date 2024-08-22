@@ -38,7 +38,7 @@
 13TN2119 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 14TN2124 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 15TN2113 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-15TN2026 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
+15TN2126 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 11TN2223 Grønland-Tøyen 3
 12TN2215 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 13TN2220 Grønland-Grønland 1000 TRANSITION "TUNNEL"
@@ -91,51 +91,42 @@
 22TN1011 Borgen-Majorstuen 3 
 23TN1015 Borgen-Majorstuen 1000 TRANSITION "TUNNEL"
 22TN1112 Majorstuen-Nationaltheatret 2
-21TN1118 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 23TN1116 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 24TN1121 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 25TN1110 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 25TN1123 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 22TN1213 Nationaltheatret-Stortinget 2
-21TN1219 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 23TN1217 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 24TN1222 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 25TN1211 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 25TN1224 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 22TN1314 Stortinget-Jernbanetorget 1
-21TN1320 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 23TN1318 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 24TN1323 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 25TN1312 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 25TN1325 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 22TN1415 Jernbanetorget-Grønland 1
-21TN1421 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 23TN1419 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 24TN1424 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 25TN1413 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 25TN1426 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 22TN1516 Grønland-Tøyen 3
-21TN1522 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 23TN1520 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 24TN1525 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 25TN1514 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 25TN1527 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 22TN1617 Tøyen-Ensjø 1
-21TN1623 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 23TN1621 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 24TN1626 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 25TN1615 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 25TN1628 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 22TN1718 Ensjø-Helsfyr 2
-21TN1724 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
 23TN1722 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
 24TN1727 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
 22TN1819 Helsfyr-Brynseng 2 
-21TN1825 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
 23TN1823 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
 24TN1828 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
 22TN1920 Brynseng-Hellerud 2
-21TN1926 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
 23TN1924 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
 24TN1929 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
 22TN2021 Hellerud-Tveita 2
@@ -159,59 +150,38 @@
 33TN1213 Ullernåsen-Montebello 1
 33TN1314 Montebello-Smestad 3 
 33TN1415 Smestad-Borgen 2
-32TN1409 Smestad-Smestad 1000 TRANSITION "TUNNEL"
 33TN1516 Borgen-Majorstuen 3 
-32TN1510 Borgen-Borgen 1000 TRANSITION "TUNNEL"
 33TN1617 Majorstuen-Nationaltheatret 2 
-31TN1618 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-32TN1611 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 34TN1621 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 35TN1610 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 35TN1623 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 33TN1718 Nationaltheatret-Stortinget 2
-31TN1719 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-32TN1712 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 34TN1722 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 35TN1711 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 35TN1724 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 33TN1819 Stortinget-Jernbanetorget 1 
-31TN1820 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-32TN1813 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 34TN1823 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 35TN1812 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 35TN1825 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 33TN1920 Jernbanetorget-Grønland 1
-31TN1921 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-32TN1914 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 34TN1924 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 35TN1913 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 35TN1926 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 33TN2021 Grønland-Tøyen 3
-31TN2022 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-32TN2015 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 34TN2025 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 35TN2014 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 35TN2027 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 33TN2122 Tøyen-Ensjø 1 
-31TN2123 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-32TN2116 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 34TN2126 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 35TN2115 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 35TN2128 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 33TN2223 Ensjø-Helsfyr 2
-31TN2224 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
-32TN2217 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
 34TN2227 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
 33TN2324 Helsfyr-Brynseng 2
-31TN2325 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
-32TN2318 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
 34TN2328 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
 33TN2425 Brynseng-Hellerud 2
-31TN2426 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
-32TN2419 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
 34TN2429 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
 33TN2526 Hellerud-Godlia 2
-32TN2520 Hellerud-Hellerud 1000 TRANSITION "TUNNEL"
 33TN2627 Godlia-Skøyenåsen 1 
 33TN2728 Skøyenåsen-Oppsal 2
 33TN2829 Oppsal-Ulsrud 1
@@ -262,68 +232,33 @@
 45TN2009 Blindern-Blindern 1000 TRANSITION "TUNNEL" 
 45TN2022 Blindern-Blindern 1000 TRANSITION "TUNNEL" 
 44TN2122 Majorstuen-Nationaltheatret 2 
-41TN2118 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-42TN2111 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-43TN2116 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL" 
 45TN2110 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 45TN2123 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 44TN2223 Nationaltheatret-Stortinget 2
-41TN2219 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-42TN2212 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-43TN2217 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 45TN2211 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 45TN2224 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 44TN2324 Stortinget-Jernbanetorget 1
-41TN2320 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-42TN2313 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-43TN2318 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 45TN2312 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 45TN2325 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 44TN2425 Jernbanetorget-Grønland 1 
-41TN2421 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-42TN2414 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-43TN2419 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 45TN2413 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 45TN2426 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 44TN2526 Grønland-Tøyen 3
-41TN2522 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-42TN2515 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-43TN2520 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 45TN2514 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 45TN2527 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 44TN2627 Tøyen-Ensjø 1
-41TN2623 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-42TN2616 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-43TN2621 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 45TN2615 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 45TN2628 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 44TN2728 Ensjø-Helsfyr 2 
-41TN2724 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
-42TN2717 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
-43TN2722 Ensjø-Ensjø 1000 TRANSITION "TUNNEL"
 44TN2829 Helsfyr-Brynseng 2 
-41TN2825 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
-42TN2818 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
-43TN2823 Helsfyr-Helsfyr 1000 TRANSITION "TUNNEL"
 44TN2930 Brynseng-Høyenhall 1
-41TN2926 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
-42TN2919 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
-43TN2924 Brynseng-Brynseng 1000 TRANSITION "TUNNEL"
 44TN3031 Høyenhall-Manglerud 2
-41TN3027 Høyenhall-Høyenhall 1000 TRANSITION "TUNNEL"
 44TN3132 Manglerud-Ryen 1
-41TN3128 Manglerud-Manglerud 1000 TRANSITION "TUNNEL"
 44TN3233 Ryen-Brattlikollen 2
-41TN3229 Ryen-Ryen 1000 TRANSITION "TUNNEL"
 44TN3334 Brattlikollen-Karlsrud 1
-41TN3330 Brattlikollen-Brattlikollen 1000 TRANSITION "TUNNEL"
 44TN3435 Karlsrud-Lambertseter 2
-41TN3431 Karlsrud-Karlsrud 1000 TRANSITION "TUNNEL"
 44TN3536 Lambertseter-Munkelia 1
-41TN3532 Lambertseter-Lambertseter 1000 TRANSITION "TUNNEL"
 44TN3637 Munkelia-Bergkrystallen 3
-41TN3633 Munkelia-Munkelia 1000 TRANSITION "TUNNEL"
-41TN3734 Bergkrystallen-Bergkrystallen 1000 TRANSITION "TUNNEL"
 55TN0102 Sognsvann-Kringsjå 0
 55TN0203 Kringsjå-Holstein 1
 55TN0304 Holstein-Østhorn 2
@@ -331,128 +266,48 @@
 55TN0506 Tåsen-Berg 1
 55TN0607 Berg-UllevålStadion 2
 55TN0708 UllevålStadion-Forskningsparken 1 
-54TN0718 UllevålStadion-UllevålStadion 1000 TRANSITION "TUNNEL"
 55TN0720 UllevålStadion-UllevålStadion 1000 TRANSITION "TUNNEL"
 55TN0809 Forskningsparken-Blindern 1
-54TN0819 Forskningsparken-Forskningsparken 1000 TRANSITION "TUNNEL"
 55TN0821 Forskningsparken-Forskningsparken 1000 TRANSITION "TUNNEL"
 55TN0910 Blindern-Majorstuen 4 
-54TN0920 Blindern-Blindern 1000 TRANSITION "TUNNEL"
 55TN0922 Blindern-Blindern 1000 TRANSITION "TUNNEL"
 55TN1011 Majorstuen-Nationaltheatret 2
-51TN1018 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-52TN1011 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-53TN1016 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-54TN1021 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 55TN1023 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 55TN1112 Nationaltheatret-Stortinget 2
-51TN1119 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-52TN1112 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-53TN1117 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-54TN1122 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 55TN1124 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 55TN1213 Stortinget-Jernbanetorget 1
-51TN1220 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-52TN1213 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-53TN1218 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-54TN1223 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 55TN1225 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 55TN1314 Jernbanetorget-Grønland 1
-51TN1321 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-52TN1314 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-53TN1319 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-54TN1324 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 55TN1326 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 55TN1415 Grønland-Tøyen 3
-51TN1422 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-52TN1415 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-53TN1420 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-54TN1425 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 55TN1427 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 55TN1516 Tøyen-CarlBernersPlass 2
-51TN1423 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-52TN1416 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-53TN1419 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-54TN1426 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 55TN1528 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 55TN1617 CarlBernersPlass-Sinsen 3
 55TN1629 CarlBernersPlass-CarlBernersPlass 1000 TRANSITION "TUNNEL"
 55TN1718 Sinsen-Storo 1
-54TN1715 Sinsen-Sinsen 1000 TRANSITION "TUNNEL"
 55TN1819 Storo-Nydalen 2
-54TN1816 Storo-Storo 1000 TRANSITION "TUNNEL"
 55TN1920 Nydalen-UllevålStadion 3
-54TN1917 Nydalen-Nydalen 1000 TRANSITION "TUNNEL"
 55TN2021 UllevålStadion-Forskningsparken 1
-54TN2018 UllevålStadion-UllevålStadion 1000 TRANSITION "TUNNEL"
-55TN2007 UllevålStadion-UllevålStadion 1000 TRANSITION "TUNNEL"
 55TN2122 Forskningsparken-Blindern 1 
-54TN2119 Forskningsparken-Forskningsparken 1000 TRANSITION "TUNNEL"
-55TN2108 Forskningsparken-Forskningsparken 1000 TRANSITION "TUNNEL"
 55TN2223 Blindern-Majorstuen 4
-54TN2220 Blindern-Blindern 1000 TRANSITION "TUNNEL"
-55TN2209 Blindern-Blindern 1000 TRANSITION "TUNNEL"
 55TN2324 Majorstuen-Nationaltheatret 2 
-51TN2318 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-52TN2311 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-53TN2316 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-54TN2321 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
-55TN2310 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 55TN2425 Nationaltheatret-Stortinget 2
-51TN2419 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-52TN2412 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-53TN2417 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-54TN2422 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
-55TN2411 Nationaltheatret-Nationaltheatret 1000 TRANSITION "TUNNEL"
 55TN2526 Stortinget-Jernbanetorget 1
-51TN2520 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-52TN2513 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-53TN2518 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-54TN2523 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
-55TN2512 Stortinget-Stortinget 1000 TRANSITION "TUNNEL"
 55TN2627 Jernbanetorget-Grønland 1
-51TN2621 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-52TN2614 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-53TN2619 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-54TN2624 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
-55TN2613 Jernbanetorget-Jernbanetorget 1000 TRANSITION "TUNNEL"
 55TN2728 Grønland-Tøyen 3
-51TN2722 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-52TN2715 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-53TN2720 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-54TN2725 Grønland-Grønland 1000 TRANSITION "TUNNEL"
-55TN2714 Grønland-Grønland 1000 TRANSITION "TUNNEL"
 55TN2829 Tøyen-CarlBernersPlass 2
-51TN2723 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-52TN2716 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-53TN2721 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-54TN2726 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
-55TN2815 Tøyen-Tøyen 1000 TRANSITION "TUNNEL"
 55TN2930 CarlBernersPlass-Hasle 2
-55TN2916 CarlBernersPlass-CarlBernersPlass 1000 TRANSITION "TUNNEL"
 55TN3031 Hasle-Økern 2
 55TN3132 Økern-Risløkka 2
-54TN3113 Økern-Økern 1000 TRANSITION "TUNNEL"
 55TN3233 Risløkka-Vollebekk 1
-54TN3212 Risløkka-Risløkka 1000 TRANSITION "TUNNEL"
 55TN3334 Vollebekk-Linderud 1
-54TN3311 Vollebekk-Vollebekk 1000 TRANSITION "TUNNEL"
 55TN3435 Linderud-Veitvet 1
-54TN3410 Linderud-Linderud 1000 TRANSITION "TUNNEL"
 55TN3536 Veitvet-Rødtvet 3 
-54TN3509 Veitvet-Veitvet 1000 TRANSITION "TUNNEL"
 55TN3637 Rødtvet-Kalbakken 1 
-54TN3608 Rødtvet-Rødtvet 1000 TRANSITION "TUNNEL"
 55TN3738 Kalbakken-Ammerud 1 
-54TN3707 Kalbakken-Kalbakken 1000 TRANSITION "TUNNEL"
 55TN3839 Ammerud-Grorud 1
-54TN3806 Ammerud-Ammerud 1000 TRANSITION "TUNNEL"
 55TN3940 Grorud-Romsås 1 
-54TN3905 Grorud-Grorud 1000 TRANSITION "TUNNEL"
 55TN4041 Romsås-Rommen 2 
-54TN4004 Romsås-Romsås 1000 TRANSITION "TUNNEL"
 55TN4142 Rommen-Stovner 1   
-54TN4103 Rommen-Rommen 1000 TRANSITION "TUNNEL"
 55TN4243 Stovner-Vestli 4
-54TN4202 Stovner-Stovner 1000 TRANSITION "TUNNEL"
-54TN4201 Vestli-Vestli 1000 TRANSITION "TUNNEL"
