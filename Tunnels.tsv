@@ -260,7 +260,7 @@
 45TN1921 Forskningsparken-Forskningsparken 1000 TRANSITION "TUNNEL"
 44TN2021 Blindern-Majorstuen 4
 45TN2009 Blindern-Blindern 1000 TRANSITION "TUNNEL" 
-45TN2022 Blindern-Blindern 1000 TRANSITION "TUNNEL" (må kanskje legge til begge maja fra linje 5 for å riktig logikk på bane bytte)
+45TN2022 Blindern-Blindern 1000 TRANSITION "TUNNEL" 
 44TN2122 Majorstuen-Nationaltheatret 2 
 41TN2118 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"
 42TN2111 Majorstuen-Majorstuen 1000 TRANSITION "TUNNEL"

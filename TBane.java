@@ -126,20 +126,20 @@ class TBane{
                 System.out.println("Key: " + key + ", Value: " + getGraphHashMap().get(key));
             }
             */
-
+            
             //to check output for each Station
-            /* 
+            
             for (String key : getStationsHashMap().keySet()) { //to check output for TunnelHashmap
                 System.out.println("Key: " + key + ", Value: " + getStationsHashMap().get(key).getTunnelIDList());
             }
-            */
+            
             
             //to check output for each Tunnel
             /* 
             for (String key : getTunnelsHashMap().keySet()) {
                 System.out.print("Key: " + key + ", Value: [");
                 for (Station station : getTunnelsHashMap().get(key).getStationsList()) {
-                    System.out.print(station.getstnID() + " "); // Or use station.getstnName()
+                    System.out.print(station.getstnID() + " "); 
                 }
                 System.out.println("]");
             }
@@ -150,15 +150,12 @@ class TBane{
         }catch(FileNotFoundException e){
             System.out.println("file not found");
         }
-        
-
-
     }
 
     public void addEgdes(){
         /* EXPLANATION: adding egdes 
         First, the graph hashmap is retrieved to iteration through. We iterater over all station ids and its list with tuples[another station, connecting tunnel]
-            We adding for one station at a time, we get the station's tunnel list (all tunnel this station uses) 
+            One station we get the station's tunnel list (all tunnel this station uses) 
                 iterate over all tunnles for spesifc station 
                     get spesific tunnels own station list
                         iterate over the spesific tunnels own station list
@@ -181,30 +178,52 @@ class TBane{
             ArrayList<String> tunnelIDList = getStationsHashMap().get(keyPair.getKey()).getTunnelIDList(); //get the list of extending tunnels from a spesific station, getKey gives a stationID 
             for(String tnID : tunnelIDList){
 
-
-//System.out.println(tnID + " " + getTunnelsHashMap().get(tnID).getStationsList().size());
+//to check output for ...
 /* 
+System.out.println(tnID + " " + getTunnelsHashMap().get(tnID).getStationsList().size());
+
 for(Station station : getTunnelsHashMap().get(tnID).getStationsList()){
-    System.out.print(station.getstnID());
+    System.out.print(station.getstnID() + " ");
 }
 
 System.out.println(" ");
-*/ 
-                
+*/
+               
                 //System.out.println(tnID);
                 ArrayList<Station> stationsList = getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
                 for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
                     //System.out.println(station.stnName);
-                    //if(!(station.getstnID().equals(keyPair.getKey()) ) ){ //ensures that stations dont make an edge back too itself 
-                    graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
+                    if(!(station.getstnID().equals(keyPair.getKey()) ) ){ //ensures that stations dont make an edge back too itself 
+                        
+                        /// TEST ///
+                        /* 
+                        System.out.print(keyPair.getKey() + " ");
+                        System.out.print(station.getstnID() + " ");
+                        System.out.print(tnID + " ");
+                        System.out.println(" ");
+                        */
+                         /// TEST ///
+
+                        graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
                     //System.out.println(keyPair.getKey() + " " + station.getstnID() + " " + tnID);
 
-                    //}
+                    }
                 }
-                //System.out.println("");
             }
-            //System.out.println("");
         }
+        //to check output for GraphHashmap is correct after adding edges 
+        /* 
+        for (String key : getGraphHashMap().keySet()) {
+            System.out.print("Key: " + key + ", Value: [");
+           
+
+            for (String[] array : getGraphHashMap().get(key)) {
+                System.out.print(array[0] + " " + array[1] + " " + array.length); // Or use station.getstnName()
+            }
+            System.out.println("]");
+        }
+        */
+        
     }
 
     public void dijkstra(String[] startAndEnd){
@@ -329,7 +348,7 @@ allPaths.forEach((key, value) ->{
         //Build the tbane 
         TBane tbane = new TBane();
         tbane.readTsvFiles();
-        //tbane.addEgdes();
+        tbane.addEgdes();
 
         //Find the shortes route
         //tbane.dijkstra(tbane.askRoute());
