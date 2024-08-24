@@ -213,6 +213,10 @@ class TBane{
     }
 
     public void dijkstra(String[] startAndEnd){
+        if(startAndEnd == null){//Identical station was choosen two times
+            return;
+        }
+
         String startStation = startAndEnd[0];
         String desinationStation = startAndEnd[1]; 
         
@@ -373,6 +377,14 @@ class TBane{
         String[] startAndEnd = new String[2];
         startAndEnd[0] = start; 
         startAndEnd[1] = end;
+
+        if(getStationsHashMap().get(start).getstnName().equals(getStationsHashMap().get(end).getstnName())){ //Identical station was choosen two times
+            System.out.println("You are already here");
+            scan.close();
+            return null;
+        }
+
+        //fix that 1 and 01 is the same
 
         scan.close();
         return startAndEnd;
