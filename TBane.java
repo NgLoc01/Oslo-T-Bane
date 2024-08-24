@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.Stack;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 class TBane{
@@ -273,7 +274,7 @@ class TBane{
                 totalTime += getTunnelsHashMap().get(allPaths.get(current)[1]).getTravelTime();;
 
                 if(getStationsHashMap().get(current).getstnID().charAt(0) != allPaths.get(current)[0].charAt(0)){
-                    stack.push("\nBytt til Linje " + getStationsHashMap().get(current).getstnID().charAt(0));
+                    stack.push("\nChange to Line:" + getStationsHashMap().get(current).getstnID().charAt(0));
                 }
                 
                 current = allPaths.get(current)[0]; //allPaths.get(current)[0] is nextStationID
@@ -281,13 +282,12 @@ class TBane{
         
             }else{//start station will be the last added to the stack and the first on read
                 stack.push("===[" + getStationsHashMap().get(current).getstnID() + " " + getStationsHashMap().get(startStation).getstnName() + "]===>");
-                stack.push("Linje " + getStationsHashMap().get(current).getstnID().charAt(0));
+                stack.push("Start at Line:" + getStationsHashMap().get(current).getstnID().charAt(0));
                 break;
             }
         }
 
         //Printing out the path we want
-        System.out.println(" ");
         while (!stack.empty()){
             System.out.println(stack.pop()); 
         }
@@ -309,8 +309,7 @@ class TBane{
         System.out.print("\nWrite in line number: ");
         String chosenLine = scan.nextLine();
 
-        System.out.print("\033[H\033[2J");  
-        System.out.flush(); 
+        clearTerminal();
 
         switch(chosenLine){
             case "1":
@@ -333,10 +332,9 @@ class TBane{
         System.out.print("Skriv start stasjon: ");
         String start = chosenLine + "STN" + scan.nextLine();
 
-        //Destination
-        System.out.print("\033[H\033[2J");  
-        System.out.flush(); 
+        clearTerminal();
 
+        //Destination
         System.out.println("Choose linje: ");
         System.out.println("1. Frognerseteren ");
         System.out.println("2. Østerås ");
@@ -346,6 +344,8 @@ class TBane{
 
         System.out.print("\nWrite in line number: ");
         chosenLine = scan.nextLine();
+
+        clearTerminal();
 
         switch(chosenLine){
             case "1":
@@ -366,6 +366,8 @@ class TBane{
         }
         System.out.print("Skriv destinasjons stasjon: ");
         String end = chosenLine + "STN" + scan.nextLine();
+
+        clearTerminal();
 
         //Start and Destionation answere
         String[] startAndEnd = new String[2];
@@ -391,6 +393,19 @@ class TBane{
             filReader.close();
         }catch(FileNotFoundException e){
             System.out.println("file not found");
+        }
+    }
+
+    public void clearTerminal(){
+        try {
+            String os = System.getProperty("os.name").toLowerCase();
+            if (os.contains("window")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
