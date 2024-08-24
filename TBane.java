@@ -4,7 +4,6 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -213,27 +212,6 @@ class TBane{
     }
 
     public void dijkstra(String[] startAndEnd){
-AtomicInteger count = new AtomicInteger(0);
-//getStationsHashMap().forEach((key, value) -> {;
-//getTunnelsHashMap().forEach((key, value) ->{ 
-/* 
-getGraphHashMap().forEach((key, value) ->{ 
-    System.out.print("Key: " + key + ", Value: { ");
-    for (String[] array : value) {
-        System.out.print("[ ");
-        for (String str : array) {
-            System.out.print(str + " ");
-        }
-        System.out.print("], ");
-    }
-    System.out.println(" }");
-    count.incrementAndGet();
-    }
-);
-
-System.out.println(count.get());
-*/
-
         String startStation = startAndEnd[0];
         String desinationStation = startAndEnd[1]; 
         
@@ -283,12 +261,6 @@ System.out.println(count.get());
     }
 
     public void printPath(HashMap<String, String[]> allPaths, String startStation, String desinationStation){
-/* 
-allPaths.forEach((key, value) ->{ 
-        System.out.println("Key: " + key + ", Value: " + value);
-}
-);
-*/ 
         int totalTime = 0;
         String current = desinationStation;
         Stack<String> stack = new Stack<String>(); //stack to reverse the path given to give it in right chronological order 
@@ -326,6 +298,7 @@ allPaths.forEach((key, value) ->{
     public String[] askRoute(){
         Scanner scan = new Scanner(System.in);
 
+        //Start
         System.out.println("Choose linje: ");
         System.out.println("1. Frognerseteren ");
         System.out.println("2. Østerås ");
@@ -360,10 +333,7 @@ allPaths.forEach((key, value) ->{
         System.out.print("Skriv start stasjon: ");
         String start = chosenLine + "STN" + scan.nextLine();
 
-
-
-
-
+        //Destination
         System.out.print("\033[H\033[2J");  
         System.out.flush(); 
 
@@ -397,11 +367,9 @@ allPaths.forEach((key, value) ->{
         System.out.print("Skriv destinasjons stasjon: ");
         String end = chosenLine + "STN" + scan.nextLine();
 
-
-
-
+        //Start and Destionation answere
         String[] startAndEnd = new String[2];
-        startAndEnd[0] = start; //blir tall her, den vill ha STN01
+        startAndEnd[0] = start; 
         startAndEnd[1] = end;
 
         scan.close();
@@ -414,8 +382,6 @@ allPaths.forEach((key, value) ->{
             while(filReader.hasNextLine()){
                 String line = filReader.nextLine();
                 String[] split = line.split(" ");
-
-                //System.out.println(split[0].substring(0, 1));
 
                 if(split[0].charAt(0) == lineNum){
                     System.out.println(""+split[0].charAt(4) + split[0].charAt(5) + " " + split[1]); 
