@@ -334,7 +334,11 @@ class TBane{
         }
  
         System.out.print("Skriv start stasjon: ");
-        String start = chosenLine + "STN" + scan.nextLine();
+        String startInput = scan.nextLine();
+        if(startInput.length() == 1){
+            startInput = "0" + startInput;
+        }
+        String start = chosenLine + "STN" + startInput;
 
         clearTerminal();
 
@@ -369,7 +373,11 @@ class TBane{
                 break;
         }
         System.out.print("Skriv destinasjons stasjon: ");
-        String end = chosenLine + "STN" + scan.nextLine();
+        String destInput = scan.nextLine();
+        if(destInput.length() == 1){
+            destInput = "0" + destInput;
+        }
+        String end = chosenLine + "STN" + destInput;
 
         clearTerminal();
 
@@ -385,6 +393,9 @@ class TBane{
         }
 
         //fix that 1 and 01 is the same
+        //fix invalid input 
+        //readme 
+        //move file structure 
 
         scan.close();
         return startAndEnd;
