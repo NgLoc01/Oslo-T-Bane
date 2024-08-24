@@ -318,7 +318,6 @@ allPaths.forEach((key, value) ->{
         System.out.println(" ");
         while (!stack.empty()){
             System.out.println(stack.pop()); 
-            //total tid?
         }
         System.out.println("\nTotal time: " + totalTime + "min");
 
@@ -327,18 +326,106 @@ allPaths.forEach((key, value) ->{
     public String[] askRoute(){
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Skriv start stasjon: ");
-        String start = scan.nextLine();
+        System.out.println("Choose linje: ");
+        System.out.println("1. Frognerseteren ");
+        System.out.println("2. Østerås ");
+        System.out.println("3. Kolsås");
+        System.out.println("4. Vestli / Bergkrystallen");
+        System.out.println("5. Ringen / Sognsvann");
 
+        System.out.print("\nWrite in line number: ");
+        String chosenLine = scan.nextLine();
+
+        System.out.print("\033[H\033[2J");  
+        System.out.flush(); 
+
+        switch(chosenLine){
+            case "1":
+                printLine('1');
+                break;
+            case "2":
+                printLine('2');
+                break;
+            case "3":
+                printLine('3');
+                break;
+            case "4":
+                printLine('4');
+                break;
+            case "5":
+                printLine('5');
+                break;
+        }
+ 
+        System.out.print("Skriv start stasjon: ");
+        String start = chosenLine + "STN" + scan.nextLine();
+
+
+
+
+
+        System.out.print("\033[H\033[2J");  
+        System.out.flush(); 
+
+        System.out.println("Choose linje: ");
+        System.out.println("1. Frognerseteren ");
+        System.out.println("2. Østerås ");
+        System.out.println("3. Kolsås");
+        System.out.println("4. Vestli / Bergkrystallen");
+        System.out.println("5. Ringen / Sognsvann");
+
+        System.out.print("\nWrite in line number: ");
+        chosenLine = scan.nextLine();
+
+        switch(chosenLine){
+            case "1":
+                printLine('1');
+                break;
+            case "2":
+                printLine('2');
+                break;
+            case "3":
+                printLine('3');
+                break;
+            case "4":
+                printLine('4');
+                break;
+            case "5":
+                printLine('5');
+                break;
+        }
         System.out.print("Skriv destinasjons stasjon: ");
-        String end = scan.nextLine();
+        String end = chosenLine + "STN" + scan.nextLine();
+
+
+
 
         String[] startAndEnd = new String[2];
-        startAndEnd[0] = start;
+        startAndEnd[0] = start; //blir tall her, den vill ha STN01
         startAndEnd[1] = end;
 
         scan.close();
         return startAndEnd;
+    }
+
+    public void printLine(char lineNum){
+        try{
+            Scanner filReader = new Scanner(new File("Stations.tsv"));
+            while(filReader.hasNextLine()){
+                String line = filReader.nextLine();
+                String[] split = line.split(" ");
+
+                //System.out.println(split[0].substring(0, 1));
+
+                if(split[0].charAt(0) == lineNum){
+                    System.out.println(""+split[0].charAt(4) + split[0].charAt(5) + " " + split[1]); 
+                }
+            }
+
+            filReader.close();
+        }catch(FileNotFoundException e){
+            System.out.println("file not found");
+        }
     }
 
     
