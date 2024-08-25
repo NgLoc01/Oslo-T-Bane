@@ -212,13 +212,13 @@ class TBane{
         */ 
     }
 
-    public void dijkstra(String[] startAndEnd){
-        if(startAndEnd == null){//Identical station was choosen two times or user wrote q to quit
+    public void dijkstra(String[] startAndEnd){ //dijkstra algorithem to find the shortes path 
+        if(startAndEnd == null){//Identical station was choosen two times or user wrote q to quit from user input 
             return;
         }
 
-        String startStation = startAndEnd[0];
-        String desinationStation = startAndEnd[1]; 
+        String startStation = startAndEnd[0]; //we use the start station to get the optimal route to all other station in the metro network, keep in mind we one only one of those routes
+        String desinationStation = startAndEnd[1]; //doesn't get used in the dijkstra 
         
         HashMap<String, Float> distance = new HashMap<>(); //empty map with ∞ as default
         for (String key : graph.keySet()) {  
@@ -265,7 +265,7 @@ class TBane{
         printPath(allPaths, startStation, desinationStation);
     }
 
-    public void printPath(HashMap<String, String[]> allPaths, String startStation, String desinationStation){
+    public void printPath(HashMap<String, String[]> allPaths, String startStation, String desinationStation){//get all the optimal routes from dijkstra method and pick the one route we want, add station from the end to front, then print the stack from last in first out to get it in chronological order  
         int totalTime = 0;
         String current = desinationStation;
         Stack<String> stack = new Stack<String>(); //stack to reverse the path given to give it in right chronological order 
@@ -302,7 +302,7 @@ class TBane{
 
     }
 
-    public String[] askRoute(){
+    public String[] askRoute(){//asks the depature and destination station from the user and sends the answerer to the dijkstra() method
         Scanner scan = new Scanner(System.in);
         String chosenLine = "";
         String start = "";
@@ -342,13 +342,11 @@ class TBane{
             System.out.println("You are already here");
             return null;
         }
-        //readme 
-        //move file structure 
 
         return startAndEnd;
     }
 
-    public String chooseStation(String chosenLine, Scanner scan){
+    public String chooseStation(String chosenLine, Scanner scan){ //used in askRoute() to choose a station from the user
         Boolean loop = true;
         String chosenStation = "";
 
@@ -418,7 +416,7 @@ class TBane{
         return chosenStation;
     }
 
-    public void printLine(char lineNum){
+    public void printLine(char lineNum){ //used in chooseStation() to print all the station for a choosen line
         System.out.println("--------------------------------------");
         System.out.println("          Selected Line: " + lineNum);
         System.out.println("--------------------------------------");
@@ -439,7 +437,7 @@ class TBane{
         }
     }
 
-    public String chooseLine(Scanner scan){
+    public String chooseLine(Scanner scan){//used in askRoute() to make the user choose the line where a spesific station is at
         Boolean loop = true;
         String chosenLine = null;
 
@@ -483,7 +481,7 @@ class TBane{
     }
 
 
-    public void clearTerminal(){
+    public void clearTerminal(){//function to clear the terminal to make the terminal more readabl 
         try {
             String os = System.getProperty("os.name").toLowerCase();
             if (os.contains("window")) {
@@ -505,86 +503,5 @@ class TBane{
 
         //Find the shortes route
         tbane.dijkstra(tbane.askRoute());
-    }
-
-}
-
-
-//Node
-class Station implements Comparable <Station>{
-    ArrayList<String> tunnelIDList = new ArrayList<String>(); //list of all tunnels that extends from this station
-    String stnID;
-    String stnName;
-    float dist;
-
-    public Station(String id, String name){
-        stnID = id;
-        stnName = name;
-    }
-
-    public void addTunnelStation(String tnId){
-        tunnelIDList.add(tnId);
-    }
-
-    public ArrayList<String> getTunnelIDList(){
-        return tunnelIDList;
-    }
-
-    public String getstnID(){
-        return stnID;
-    }
-
-    public String getstnName(){
-        return stnName;
-    }
-
-    public void stationSetDist(float setDist){
-        dist = setDist;
-    }
-
-    public float getDist(){
-        return dist;
-    }
-
-    @Override //necessary to use PriorityQueue 
-    public int compareTo(Station other){ 
-       return (int)dist - (int)other.getDist();
-    
-    }
-}
-
-//Edge
-class Tunnel{ //A tunnel is a egde in the graph and are between two stations, a tunnel has an ID, name and travel time  
-    ArrayList<Station> stationsList = new ArrayList<Station>(); //list of all stations that uses this tunnel
-    String tnID;
-    String tunnelName;
-    int travelTime;
-    boolean transitionTunnel;
-
-    public Tunnel(String id, String name, String time, boolean check){
-        tnID = id;
-        tunnelName = name;
-        travelTime = Integer.parseInt(time);
-        transitionTunnel = check;
-    }
-
-    public void addStationtoTunnel(Station station){
-        stationsList.add(station);
-    }
-
-    public ArrayList<Station> getStationsList() {
-        return stationsList;
-    }
-
-    public int getTravelTime(){
-        return travelTime;
-    }
-
-    public String gettnID(){
-        return tnID;
-    }
-
-    public String getTunnelName(){
-        return tunnelName;
     }
 }
