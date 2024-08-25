@@ -183,33 +183,11 @@ class TBane{
                 ArrayList<Station> stationsList = getTunnelsHashMap().get(tnID).getStationsList(); //get list over all stations that uses a spesific tunnel
                 for(Station station : stationsList){ //iterate over all stations that uses this spesific tunnel 
                     if(!(station.getstnID().equals(keyPair.getKey()) ) ){ //ensures that stations dont make an edge back too itself 
-                        
-                        /// TEST ///
-                        /* 
-                        System.out.print(keyPair.getKey() + " ");
-                        System.out.print(station.getstnID() + " ");
-                        System.out.print(tnID + " ");
-                        System.out.println(" ");
-                        */
-                         /// TEST ///
-
                         graphAddTunnel(keyPair.getKey(), station.getstnID(), tnID); //adds edge to the graph hashmap
                     }
                 }
             }
         }
-        //to check output for GraphHashmap is correct after adding edges 
-        /* 
-        for (String key : getGraphHashMap().keySet()) {
-            System.out.print("Key: " + key + ", Value: [");
-           
-
-            for (String[] array : getGraphHashMap().get(key)) {
-                System.out.print(" [" + array[0] + ", " + array[1] + "]"); // Or use station.getstnName()
-            }
-            System.out.println("]");
-        }
-        */ 
     }
 
     public void dijkstra(String[] startAndEnd){ //dijkstra algorithem to find the shortes path 
