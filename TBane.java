@@ -304,52 +304,54 @@ class TBane{
 
     public String[] askRoute(){
         Scanner scan = new Scanner(System.in);
-        
-        //Start
-        Boolean loop = true;
         String chosenLine = "";
         String start = "";
         String end = "";
 
-        while(loop){
+        chosenLine = chooseLine(scan);
+        if(chosenLine == null){
+            clearTerminal();
+            return null;
+        }
+        start = chooseStation(chosenLine, scan);
+        if(start == null){
+            clearTerminal();
+            return null;
+        }
+
+        chosenLine = chooseLine(scan);
+        if(chosenLine == null){
+            clearTerminal();
+            return null;
+        }
+        end = chooseStation(chosenLine, scan);
+        if(end == null){
+            clearTerminal();
+            return null;
+        }
+
+        //Start and Destionation answere
+        String[] startAndEnd = new String[2];
+        startAndEnd[0] = start; 
+        startAndEnd[1] = end;
+
+        if(getStationsHashMap().get(start).getstnName().equals(getStationsHashMap().get(end).getstnName())){ //Identical station was choosen two times
             System.out.println("======================================");
             System.out.println("              Oslo Metro              ");
             System.out.println("======================================");
-            System.out.println("Choose linje:");
-            System.out.println("1. Frognerseteren ");
-            System.out.println("2. Østerås ");
-            System.out.println("3. Kolsås");
-            System.out.println("4. Vestli / Bergkrystallen");
-            System.out.println("5. Ringen / Sognsvann");
-
-            System.out.print("\nWrite line number for the departure station: (q to quit): ");
-            chosenLine = scan.nextLine();
-            if(chosenLine.equals("q")){
-                scan.close();
-                return null;
-            }
-
-            if(chosenLine.equals("1") || 
-            chosenLine.equals("2") ||
-            chosenLine.equals("3") ||
-            chosenLine.equals("4") ||
-            chosenLine.equals("5")
-            ){
-                loop = false;
-            }else{
-                System.out.println("\n[INVALID INPUT, TRY AGAIN]");
-
-                try { //make the message appear for a short time 
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    System.out.println(e);;
-                }
-                clearTerminal();
-            }
+            System.out.println("You are already here");
+            return null;
         }
-        clearTerminal();
+        //readme 
+        //move file structure 
 
-        loop = true;
+        return startAndEnd;
+    }
+
+    public String chooseStation(String chosenLine, Scanner scan){
+        Boolean loop = true;
+        String chosenStation = "";
+
         while (loop) {
             switch(chosenLine){
                 case "1":
@@ -370,9 +372,8 @@ class TBane{
             }
             System.out.print("\nWrite departure station number: (q to quit): ");
             //Write destination station number
-            String startInput = scan.nextLine();
-            if(startInput.equals("q")){
-                scan.close();
+            String input = scan.nextLine();
+            if(input.equals("q")){
                 return null;
             }
             
@@ -394,13 +395,13 @@ class TBane{
             }
 
 
-            if(startInput.length() == 1){ //treat 01 and 1 equally e.g
-                startInput = "0" + startInput;
+            if(input.length() == 1){ //treat 01 and 1 equally e.g
+                input = "0" + input;
             }
-            start = chosenLine + "STN" + startInput;
+            chosenStation = chosenLine + "STN" + input;
 
 
-            if(validStations.contains(startInput)){//check if user input is a station that is valid on the choosen line 
+            if(validStations.contains(input)){//check if user input is a station that is valid on the choosen line 
                 loop = false;
             }else{
                 System.out.println("\n[INVALID INPUT, TRY AGAIN]");
@@ -414,133 +415,7 @@ class TBane{
             }
         }
         clearTerminal();
-
-
-
-        //Destination
-        loop = true;
-        while(loop){
-            System.out.println("======================================");
-            System.out.println("              Oslo Metro              ");
-            System.out.println("======================================");
-            System.out.println("Choose linje:");
-            System.out.println("1. Frognerseteren ");
-            System.out.println("2. Østerås ");
-            System.out.println("3. Kolsås");
-            System.out.println("4. Vestli / Bergkrystallen");
-            System.out.println("5. Ringen / Sognsvann");
-    
-            System.out.print("\nWrite line number for the destination station: (q to quit): ");
-            chosenLine = scan.nextLine();
-            if(chosenLine.equals("q")){
-                scan.close();
-                return null;
-            }
-
-            if(chosenLine.equals("1") || 
-            chosenLine.equals("2") ||
-            chosenLine.equals("3") ||
-            chosenLine.equals("4") ||
-            chosenLine.equals("5")
-            ){
-                loop = false;
-            }else{
-                System.out.println("\n[INVALID INPUT, TRY AGAIN]");
-
-                try { //make the message appear for a short time 
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    System.out.println(e);;
-                }
-                clearTerminal();
-            }
-        }
-        clearTerminal();
-
-        loop = true;
-        while (loop) {
-            switch(chosenLine){
-                case "1":
-                    printLine('1');
-                    break;
-                case "2":
-                    printLine('2');
-                    break;
-                case "3":
-                    printLine('3');
-                    break;
-                case "4":
-                    printLine('4');
-                    break;
-                case "5":
-                    printLine('5');
-                    break;
-            }
-            System.out.print("\nWrite destination station number: (q to quit): ");
-            String destInput = scan.nextLine();
-            if(destInput.equals("q")){
-                scan.close();
-                return null;
-            }
-
-            //add all station from the choosen line to a hashset so it can be checked for valied station input from that spesific line 
-            Set<String> validStations = new HashSet<>();
-            try{
-                Scanner filReader = new Scanner(new File("Stations.tsv"));
-                while(filReader.hasNextLine()){
-                    String line = filReader.nextLine();
-                    String[] split = line.split(" ");
-    
-                    if(split[0].charAt(0) == chosenLine.charAt(0)){
-                        validStations.add(split[0].charAt(4) + ""+ split[0].charAt(5));
-                    }
-                }
-                filReader.close();
-            }catch(FileNotFoundException e){
-                System.out.println("file not found");
-            }
-
-            if(destInput.length() == 1){ //treat 01 and 1 equally e.g
-                destInput = "0" + destInput;
-            }
-            end = chosenLine + "STN" + destInput;
-
-            if(validStations.contains(destInput)){//check if user input is a station that is valid on the choosen line 
-                loop = false;
-            }else{
-                System.out.println("\n[INVALID INPUT, TRY AGAIN]");
-
-                try { //make the message appear for a short time 
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    System.out.println(e);;
-                }
-                clearTerminal();
-            }
-        }
-        clearTerminal();
-
-
-
-        //Start and Destionation answere
-        String[] startAndEnd = new String[2];
-        startAndEnd[0] = start; 
-        startAndEnd[1] = end;
-
-        if(getStationsHashMap().get(start).getstnName().equals(getStationsHashMap().get(end).getstnName())){ //Identical station was choosen two times
-            System.out.println("======================================");
-            System.out.println("              Oslo Metro              ");
-            System.out.println("======================================");
-            System.out.println("You are already here");
-            scan.close();
-            return null;
-        }
-
-        //readme 
-        //move file structure 
-
-        scan.close();
-        return startAndEnd;
+        return chosenStation;
     }
 
     public void printLine(char lineNum){
@@ -563,6 +438,50 @@ class TBane{
             System.out.println("file not found");
         }
     }
+
+    public String chooseLine(Scanner scan){
+        Boolean loop = true;
+        String chosenLine = null;
+
+        while(loop){
+            System.out.println("======================================");
+            System.out.println("              Oslo Metro              ");
+            System.out.println("======================================");
+            System.out.println("Choose linje:");
+            System.out.println("1. Frognerseteren ");
+            System.out.println("2. Østerås ");
+            System.out.println("3. Kolsås");
+            System.out.println("4. Vestli / Bergkrystallen");
+            System.out.println("5. Ringen / Sognsvann");
+
+            System.out.print("\nWrite line number for the departure station: (q to quit): ");
+            chosenLine = scan.nextLine();
+            if(chosenLine.equals("q")){
+                return null;
+            }
+
+            if(chosenLine.equals("1") || 
+            chosenLine.equals("2") ||
+            chosenLine.equals("3") ||
+            chosenLine.equals("4") ||
+            chosenLine.equals("5")
+            ){
+                loop = false;
+            }else{
+                System.out.println("\n[INVALID INPUT, TRY AGAIN]");
+
+                try { //make the message appear for a short time 
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    System.out.println(e);;
+                }
+                clearTerminal();
+            }
+        }
+        clearTerminal();
+        return chosenLine;
+    }
+
 
     public void clearTerminal(){
         try {
