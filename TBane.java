@@ -44,7 +44,8 @@ class TBane{
         return tunnels;
     }
 
-    public void readTsvFiles(){
+
+    public void readTsvFiles(){//read the both Station.tsv and Tunnels.tsv to get all necessary data to recreate Oslo metro in hashmaps 
         //Tunnels - The tunnels has to be added into the tunnels hashmap first so i can be used when making stations 
         //Reading Tunnels.tsv
         try{
@@ -57,12 +58,6 @@ class TBane{
                 String tunnelName = split[1];
                 String travelTime = split[2]; 
 
-                /////////// TESTS FOR OUTPUT ///////////
-                //System.out.println(split[0]);
-                //System.out.println(split[1]);
-                //System.out.println(split[2] + "\n");
-                /////////// TESTS FOR OUTPUT ///////////
-
                 if(split[0].charAt(0) != split[0].charAt(1)){ //Example"12TN1812 Majorstuen-Nationaltheatret 1000" transitionTunnel
                     Tunnel newTunnel = new Tunnel(tnID, tunnelName, travelTime, true); //make normal tunnel
                     getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
@@ -71,14 +66,6 @@ class TBane{
                     getTunnelsHashMap().put(tnID, newTunnel); //add a tunnel to the tunnel hashmap
                 }             
             }
-            /////////// TESTS FOR OUTPUT ///////////
-            /* 
-            //to check output for TunnelHashmap
-            for (String key : getTunnelsHashMap().keySet()) { 
-                System.out.println("Key: " + key + ", Value: " + getTunnelsHashMap().get(key).getTunnelName());
-            }
-            */
-            /////////// TESTS FOR OUTPUT ///////////
             filReader.close();
 
         }catch(FileNotFoundException e){
@@ -97,11 +84,6 @@ class TBane{
 
                 graphAddStation(stnID); //add node (station) to graph hashmap
 
-                /////////// TESTS FOR OUTPUT ///////////
-                //System.out.println(split[0]);
-                //System.out.println(split[1] + "\n");
-                /////////// TESTS FOR OUTPUT ///////////
-                
                 Station newStation = new Station(stnID, stnName);
                 getStationsHashMap().put(stnID, newStation);
 
@@ -112,40 +94,6 @@ class TBane{
                     getTunnelsHashMap().get(split[i]).addStationtoTunnel(newStation); //add new station to spesific tunnel
                 }
             }
-            /////////// TESTS FOR OUTPUT ///////////
-            //to check output for StationHashmap
-            /* 
-            for (String key : getStationsHashMap().keySet()) { //to check output for TunnelHashmap
-                System.out.println("Key: " + key + ", Value: " + getStationsHashMap().get(key).getstnName());
-            }
-            */
-
-            //to check output for GraphHashmap
-            /* 
-            for (String key : getGraphHashMap().keySet()) { //to check output for TunnelHashmap
-                System.out.println("Key: " + key + ", Value: " + getGraphHashMap().get(key));
-            }
-            */
-            
-            //to check output for each Station
-            /* 
-            for (String key : getStationsHashMap().keySet()) { //to check output for TunnelHashmap
-                System.out.println("Key: " + key + ", Value: " + getStationsHashMap().get(key).getTunnelIDList());
-            }
-            */
-            
-            
-            //to check output for each Tunnel
-            /* 
-            for (String key : getTunnelsHashMap().keySet()) {
-                System.out.print("Key: " + key + ", Value: [");
-                for (Station station : getTunnelsHashMap().get(key).getStationsList()) {
-                    System.out.print(station.getstnID() + " "); 
-                }
-                System.out.println("]");
-            }
-            */
-            /////////// TESTS FOR OUTPUT ///////////
             filReader.close();
 
         }catch(FileNotFoundException e){
@@ -153,26 +101,8 @@ class TBane{
         }
     }
 
-    public void addEgdes(){
-        /* EXPLANATION: adding egdes 
-        First, the graph hashmap is retrieved to iteration through. We iterater over all station ids and its list with tuples[another station, connecting tunnel]
-            One station we get the station's tunnel list (all tunnel this station uses) 
-                iterate over all tunnles for spesifc station 
-                    get spesific tunnels own station list
-                        iterate over the spesific tunnels own station list
-                            now have all the information we need to add a egde
-                                Each station in a tunnels internal station list uses the same tunnel as the station we curently iteration on
-                                it therfore an egde and can add the egde to the grpah hashmap
-                                    ["Station", {["diffrent station", "shared tunnel"], ["diffrent station", "shared tunnel"], ...}]
-                
-        Summed up, for every station in graph hashmap, get their tunnel list, then go trought each of those tunnels to their own station list,
-        every station that is on a list shares a tunnel with the first station and have an egde                  
-        
-        TIME COMPLEXITY:
-        You should think that the time complexecy would me O(n^2) but in reallity it not beacuse the graph is not complete
-            Every station is not connected to every other station via tunnels  
-        */
 
+    public void addEgdes(){//method to add edgdes(tunnles) between station in the graph hashmap
         //add edges to graph(tunnels between stations)
         Set<Map.Entry<String,ArrayList<String[]>>> graphHashMap = getGraphHashMap().entrySet(); //returns a Set of Map.Entry objects. Each Map.Entry object represents a key-value pair in the HashMap
         for(Map.Entry<String, ArrayList<String[]>> keyPair : graphHashMap){ //keyPair = [stationID, [list]], we iterate over alle entries in then graph HashMap
@@ -189,6 +119,7 @@ class TBane{
             }
         }
     }
+
 
     public void dijkstra(String[] startAndEnd){ //dijkstra algorithem to find the shortes path 
         if(startAndEnd == null){//Identical station was choosen two times or user wrote q to quit from user input 
@@ -211,7 +142,6 @@ class TBane{
 
         HashMap<String, String[]> allPaths = new HashMap<>();//dijkstra gives the shortes route from one node to all other nodes, we only need one route 
         allPaths.put(startStation, null);  
-
 
         while(!queue.isEmpty()){
             Station station = queue.poll();
@@ -239,9 +169,9 @@ class TBane{
                 }
             }
         }
-
         printPath(allPaths, startStation, desinationStation);
     }
+
 
     public void printPath(HashMap<String, String[]> allPaths, String startStation, String desinationStation){//get all the optimal routes from dijkstra method and pick the one route we want, add station from the end to front, then print the stack from last in first out to get it in chronological order  
         int totalTime = 0;
@@ -261,7 +191,6 @@ class TBane{
                 
                 current = allPaths.get(current)[0]; //allPaths.get(current)[0] is nextStationID
 
-        
             }else{//start station will be the last added to the stack and the first on read
                 stack.push("===[" + getStationsHashMap().get(current).getstnID() + " " + getStationsHashMap().get(startStation).getstnName() + "]===>");
                 stack.push("Start at Line:" + getStationsHashMap().get(current).getstnID().charAt(0));
@@ -271,14 +200,13 @@ class TBane{
                 break;
             }
         }
-
-        //Printing out the path we want
-        while (!stack.empty()){
+        while (!stack.empty()){  //Printing out the path we want
             System.out.println(stack.pop()); 
         }
         System.out.println("\nTotal time: " + totalTime + "min");
 
     }
+
 
     public String[] askRoute(){//asks the depature and destination station from the user and sends the answerer to the dijkstra() method
         Scanner scan = new Scanner(System.in);
@@ -320,9 +248,9 @@ class TBane{
             System.out.println("You are already here");
             return null;
         }
-
         return startAndEnd;
     }
+
 
     public String chooseStation(String chosenLine, Scanner scan){ //used in askRoute() to choose a station from the user
         Boolean loop = true;
@@ -394,6 +322,7 @@ class TBane{
         return chosenStation;
     }
 
+
     public void printLine(char lineNum){ //used in chooseStation() to print all the station for a choosen line
         System.out.println("--------------------------------------");
         System.out.println("          Selected Line: " + lineNum);
@@ -414,6 +343,7 @@ class TBane{
             System.out.println("file not found");
         }
     }
+
 
     public String chooseLine(Scanner scan){//used in askRoute() to make the user choose the line where a spesific station is at
         Boolean loop = true;
