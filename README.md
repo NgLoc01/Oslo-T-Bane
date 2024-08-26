@@ -1,10 +1,13 @@
 # Oslo-T-Bane
 **Norwegian:**
 Dette java programmet skal finne den korteste vei mellom to stasjoner på Oslo t-bane med hjelp av dijkstra algoritmen.
-Dataen for tunnelene og stasjoene er laget av meg og baserer seg på Oslo t-bane tabel
+Dataen for tunnelene og stasjoene er laget av meg og baserer seg på Oslo t-bane tabel. Brukeren av programmet velger 
+først linjen avgangsstasjonen ligger på også selve stasjonen. Brukeren må deretter velge linjen destinasjonsstasjonen 
+ligger på også selve stasjonen. Programmet skriver ut den kjappeste veien en kan ta for å reise fra avgangsstasjonen 
+til destinasjonsstasjonen basert på dataen i Tunnels.tsv og Stations.tsv filene.
 
 Tunnels.tsv:
-Tunnels.tsv består av alle tunnelene i Oslos t-banesystem. Hver tunnel har en unik id det første 2 sifrene sier hvilke line tbanen
+    Tunnels.tsv består av alle tunnelene i Oslos t-banesystem. Hver tunnel har en unik id det første 2 sifrene sier hvilke line tbanen
 
 11TN0102 Frognerseteren-Voksenkollen 1
 
