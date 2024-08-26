@@ -1,15 +1,16 @@
 # Oslo-T-Bane
 **Norwegian:**
 Dette java programmet skal finne den korteste vei mellom to stasjoner på Oslo t-bane med hjelp av dijkstra algoritmen.
-Dataen for tunnelene og stasjoene er laget av meg og baserer seg på Oslo t-bane tabel. Brukeren av programmet velger 
-først linjen avgangsstasjonen ligger på også selve stasjonen. Brukeren må deretter velge linjen destinasjonsstasjonen 
-ligger på også selve stasjonen. Programmet skriver ut den kjappeste veien en kan ta for å reise fra avgangsstasjonen 
-til destinasjonsstasjonen basert på dataen i Tunnels.tsv og Stations.tsv filene.
+Dataen for tunnelene og stasjoene er laget av meg og baserer seg på Oslo t-bane tabel. Brukeren velger først linjen 
+avgangsstasjonen ligger på, deretter selve stasjonen. Så velger brukeren linjen destinasjonsstasjonen ligger på og til
+slutt stasjonen. Programmet skriver ut den raskeste ruten fra avgangsstasjonen til destinasjonsstasjonen, basert på 
+dataene i filene Tunnels.tsv og Stations.tsv
 
 Tunnels.tsv:
     Tunnels.tsv består av alle tunnelene i Oslos t-banesystem. Hver tunnel har en unik id det første 2 sifrene sier hvilke line tbanen
-
 11TN0102 Frognerseteren-Voksenkollen 1
+
+
 
 Stations.tsv:
 Stations.tsv består av alle Stasjonene i Oslos t-banesystem. Hver stasjon har en unik id hvor det første sifere sier hvilke line stoppe befinner 
@@ -21,6 +22,8 @@ Dette er et eksemepl på en statsjon på line 1. Det første vi ser er 1STJ18 so
 Videre ser vi navet på stasjonen. De neste to ordene er altså 11TN1718 11TN1819 er tunnel IDer og er de tunnelene man bruker når man kjører på 
 den linjen stasjonen oppgir. Alle stasjonene skal skal minsta ha to tunner som brukes på linjen med untak av ende stasjoene som bare har en tunnel ut 
 fra seg. Videre kan en Tunnel ha flere "tunnler" den kan ta i bruk. Disse er egentlig ikke tunneller, men signalisere at man bytter fra en linje til en  annen. I eksempelent har vi 12TN1811, her ser vi at vi bytter fra linje 1 til linje 2 indikert på starten av IDen. Her bytter man fra majorstuen på stopp 18 på linje 1 til majorstuen på stopp 11 på linje 2.
+
+
 
 addEgdes()
 /* EXPLANATION: adding egdes 
