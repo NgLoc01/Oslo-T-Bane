@@ -6,9 +6,27 @@ avgangsstasjonen ligger på, deretter selve stasjonen. Så velger brukeren linje
 slutt stasjonen. Programmet skriver ut den raskeste ruten fra avgangsstasjonen til destinasjonsstasjonen, basert på 
 dataene i filene Tunnels.tsv og Stations.tsv
 
+**Filer :**
 Tunnels.tsv:
-    Tunnels.tsv består av alle tunnelene i Oslos t-banesystem. Hver tunnel har en unik id det første 2 sifrene sier hvilke line tbanen
-11TN0102 Frognerseteren-Voksenkollen 1
+Tunnels.tsv består av alle tunnelene i Oslos t-banesystem. Hver tunnel har en unik id det første 2 sifrene sier hvilke line 
+tunnelen tilhører. Hvis de to første sifrene er like vil det si at tunnelen går mellom to stasjoner på den samme linjen. Om
+to do sifrene er anderledes betyr det at tunnelen er en overgangs tunnel. En overgangstunnel repesentere egentlig et linje
+bytte fra en linje til en annen. Videre i til en tunnel id står det TN som betyr at det er en tunnel. De siste fire sifrene 
+sier hvilke to stasjoner som tunnelen med iden er imellom. Man ser på de 4 siste sifrene som par hvor hvert par som sagt er 
+er stasjonene tunnelen er imellom. Det første av sifrene de to første sifrene tilhører det første paret i de 4 siste sifrene,
+mens det andre sifret av de to første sidrene tilhører det andre paret i de 4 siste sifrene. Vet å se på denne kombinasjonen 
+kan man se hvilke linje en stasjon tilhører. Dette er spesielt nyttig ved et linjebytte hvor man lett kan se hvilke stasjon
+man bytter til. Etter selve tunnel iden kommer det tileggsinfomasjon som hva stasjoene heter, hvor lang tid det tar å reise 
+gjennom denne tunnelen og om det eventuelt er en overgangstunnel.
+
+Eksempel:
+12TN1811 Majorstuen-Majorstuen 5 TRANSITION "TUNNEL"
+
+Ved å se på de første 2 sifrene kan vi se atdDette er en tunnel som går mellom linje 1 og 2. Videre står det "TN" og vi kan
+være sikre på at dette er en tunnel id. Videre har vi 18 også 11. Dette betyr at vi har en tunnel som går fra linje 1 stasjon
+18 til linje 2 stasjon 11. Videre ser vi at det står "Majorstuen-Majorstuen" så vi vet at begge stasjonen på linjen er 
+majorstuen stoppe på hver sin linje. Dette er tydlig et overgangstunnel som vi får bekreftet ved at det står "TRANSITION "TUNNEL""
+på slutten 
 
 
 
@@ -24,7 +42,10 @@ den linjen stasjonen oppgir. Alle stasjonene skal skal minsta ha to tunner som b
 fra seg. Videre kan en Tunnel ha flere "tunnler" den kan ta i bruk. Disse er egentlig ikke tunneller, men signalisere at man bytter fra en linje til en  annen. I eksempelent har vi 12TN1811, her ser vi at vi bytter fra linje 1 til linje 2 indikert på starten av IDen. Her bytter man fra majorstuen på stopp 18 på linje 1 til majorstuen på stopp 11 på linje 2.
 
 
+**Helhet :**
+readTsvFiles
 
+**Tidskompleksistet :**
 addEgdes()
 /* EXPLANATION: adding egdes 
         First, the graph hashmap is retrieved to iteration through. We iterater over all station ids and its list with tuples[another station, connecting tunnel]
