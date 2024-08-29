@@ -22,7 +22,6 @@ gjennom denne tunnelen og om det eventuelt er en overgangstunnel.
 
 Eksempel:
 12TN1811 Majorstuen-Majorstuen 5 TRANSITION "TUNNEL"
-
 Ved å se på de første 2 sifrene kan vi se atdDette er en tunnel som går mellom linje 1 og 2. Videre står det "TN" og vi kan
 være sikre på at dette er en tunnel id. Videre har vi 18 også 11. Dette betyr at vi har en tunnel som går fra linje 1 stasjon
 18 til linje 2 stasjon 11. Videre ser vi at det står "Majorstuen-Majorstuen" så vi vet at begge stasjonen på linjen er 
@@ -31,7 +30,8 @@ på slutten
 
 
 
-Stations.tsv:
+**Stations.tsv:**
+
 Stations.tsv består av alle Stasjonene i Oslos t-banesystem. Hver stasjon har en unik id hvor det første sifere sier hvilke line stoppe befinner 
 seg på. En stasjon kan befinne seg på flere linjer som tilsier at flere tbane linjer kjører på samme spor.  
 
