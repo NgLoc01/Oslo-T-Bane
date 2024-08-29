@@ -1,13 +1,14 @@
 # Oslo-T-Bane
-**Norwegian:**
+# Overview
 Dette java programmet skal finne den korteste vei mellom to stasjoner på Oslo t-bane med hjelp av dijkstra algoritmen.
 Dataen for tunnelene og stasjoene er laget av meg og baserer seg på Oslo t-bane tabel. Brukeren velger først linjen 
 avgangsstasjonen ligger på, deretter selve stasjonen. Så velger brukeren linjen destinasjonsstasjonen ligger på og til
 slutt stasjonen. Programmet skriver ut den raskeste ruten fra avgangsstasjonen til destinasjonsstasjonen, basert på 
 dataene i filene Tunnels.tsv og Stations.tsv
 
-**Filer :**
-# Tunnels.tsv:
+# Filer :
+**Tunnels.tsv:**
+
 Tunnels.tsv består av alle tunnelene i Oslos t-banesystem. Hver tunnel har en unik id det første 2 sifrene sier hvilke line 
 tunnelen tilhører. Hvis de to første sifrene er like vil det si at tunnelen går mellom to stasjoner på den samme linjen. Om
 to do sifrene er anderledes betyr det at tunnelen er en overgangs tunnel. En overgangstunnel repesentere egentlig et linje
