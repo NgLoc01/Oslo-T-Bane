@@ -27,34 +27,26 @@ kan man se at mange av tunnel idene to første sifrere er ulike. I dette tilfell
 
 # Klasser
 Station, Tunnel og TBane klassen danner grunnmuren for hele programmet og lagrer informasjoner vi trenger.
-- Stastion klassen holder på informasjon for den spesefikke klassen. En stasjon har en id, navn, dist og en liste av tunnel ider. Dist variabelen blir spesefikt brukt i dijkstra() funksjonen hvor det er distansen. Listen av tunnel ider er idene til alle tunnelene som er koblet og kan brukes fra en stasjon.  
-Metodene i tunnel klassen 
 
-- En tunnel klassen har en id, navn, reisetid, om det er en overgangstunnel og en liste av stasjoner som er tilkoblet til denne tunnellen. 
-meotdene i tunnel klassen 
-- TBane klassen har 3 forskjellgie hashmap som lager... Tbane klassen har alle metodene 
+- Stastion klassen holder på informasjon for den spesefikke klassen. En stasjon har en id, navn, dist og en liste av tunnel ider. Dist variabelen blir spesefikt brukt i dijkstra() funksjonen hvor det er den minste distansen mellom den spesfike noden til start noden. Dette er for å sammenligne forskjellige node for å finne den den korteste veien fra start. Listen av tunnel ider er idene til alle tunnelene som er koblet og kan brukes fra en stasjon. Metodene til stasjon klassen er hovedskakelig for å sette verdier eller hente verdier. 
+
+- En tunnel klassen har en id, navn, reisetid, om det er en overgangstunnel og en liste av stasjoner som er tilkoblet til denne tunnellen. Metodene i tunnel klassen er hovedskakelig for å sette verdier eller hente verdier. 
+
+- TBane klassen er hvor alt blir satt sammen og kjøres. Tbane klassen har 3 hashmaps hvor alt av informasjon blir sentalisert og kan 
+hentes fra tbane klassen. Det er et hashmap for stasjoner hvor nøkkelen er stasjons iden i form av en string og verdien er den tilsvarende stasjon klassen. Det andre hasmapet er for tunneler hvor nøkkelen er tunnel iden i form av en string og verdien er den tilsvarende tunnel klassen. Det siste hashmapet danner en graf og er abstahert model av oslo tbane. Nøkklene i graf hashmapet er stasjon ider i from av stringer og verdien er en arraylist med tupler som er andre stasjoner og tunnelen de deler med stasjonen som er nøkkelen i hashmapet. Graf hashmapet er som sagt en representasjon av oslo tbane nettverk og stasjon og tunnel hashmapet hjelper å hente fram til enkelt tunnler og stasjoner. Tbane har metodene som bygger opp grafen, tar imot input, gjør et dijkstra søk og printer ut resultatet. 
 
 # Programflyt :
-Første som skjer er at tsv filene Station.tsv og Tunnel.tsv blir lest i readTsvFiles() funksjonen. 
+Hele programmet starter og kjøres i TBane.java. Det første som skjer er at et tbane objekt blir laget i main. Deretter blir tsv filene Station.tsv og Tunnel.tsv lest i readTsvFiles() funksjonen og . 
 
-```
-Tbane class
-```
-Tunnel class
-Først leses Tunnels.tsv og Stations.tsv for å lag et rutenett model av oslo tbane nettverk ved hjelp av hashmaps. 
 
 # Tidskompleksistet :
-Tidskomleksiteten til dijkstra er  
+- Tidskomleksiteten til dijkstra er  
 
-- i funksksjonen addEgdes() legger vi til alle kanter i ... Man skulle tro at dette har en kjøretid på O(n^2), men dette er ikke
-tilfelle fordi grafen ikke er komplett. Det vi si at alle stasjoner ikke har en kant til alle andre stasjoner. 
-
-        You should think that the time complexecy would me O(n^2) but in reallity it not beacuse the graph is not complete
-            Every station is not connected to every other station via tunnels  
+- Tidskomkleksiteten til addEgdes() skulle man tro er O(n^2) fordi man skal legge til alle kantene i grafen. I realiteten er den ikke O(n^2) fordi grafen ikke er komplett som vil si at ikke alle stasjoner er tilkoblet sammen gjennom en tunnel.  
         
 
-
 # Hvordan kjøre programmet :
+- I terminalen 
 ```
 javac Station.java Tunnel.java Tbane.java
 ```
