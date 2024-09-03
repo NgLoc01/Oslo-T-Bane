@@ -36,14 +36,16 @@ Station, Tunnel og TBane klassen danner grunnmuren for hele programmet og lagrer
 hentes fra tbane klassen. Det er et hashmap for stasjoner hvor nøkkelen er stasjons iden i form av en string og verdien er den tilsvarende stasjon klassen. Det andre hasmapet er for tunneler hvor nøkkelen er tunnel iden i form av en string og verdien er den tilsvarende tunnel klassen. Det siste hashmapet danner en graf og er abstahert model av oslo tbane. Nøkklene i graf hashmapet er stasjon ider i from av stringer og verdien er en arraylist med tupler som er andre stasjoner og tunnelen de deler med stasjonen som er nøkkelen i hashmapet. Graf hashmapet er som sagt en representasjon av oslo tbane nettverk og stasjon og tunnel hashmapet hjelper å hente fram til enkelt tunnler og stasjoner. Tbane har metodene som bygger opp grafen, tar imot input, gjør et dijkstra søk og printer ut resultatet. 
 
 # Programflyt :
-Hele programmet starter og kjøres i TBane.java. Det første som skjer er at et tbane objekt blir laget i main. Deretter blir tsv filene Station.tsv og Tunnel.tsv lest i readTsvFiles() funksjonen og . 
+1. Hele programmet starter og kjøres i TBane.java. Det første som skjer er at et tbane objekt blir laget i main. Deretter blir tsv filene Station.tsv og Tunnel.tsv lest i readTsvFiles() funksjonen. I readTsvFiles() blir alle stasjonene og tunnelen opprettet som klasser og alt av viktig informasjon blir lagre intert i klassene. I readTsvFiles() blir også de opprette stasjons klassene`s navn lagt til i graf hashmapet som nøkler med tomme arraylist foreløpig.   
+
+2. Det neste som skjer at kantene må legges til i graf hashmapet. For å legge til kanter/tunneler må vi fylle de tomme arralistene i graf hashmapet. Hver tuppel i disse arraylistene er en kant/tunnel mellom stasjonen som er nøkelverdi og stasjonen som er inni tuppelen. Kantene blir lagt til i addEgdes() ved å gå over alle nøkle verdiene for å legge til tupler av <"StatsjonID", "TunnelID"> i deres tomme arraylist. Vi gjør dette ved å gå over informasjon vi allerede har fra klassene indre informasjon som har blir lagt til i readTsvFiles(). Tidskomkleksiteten til addEgdes() skulle man tro er O(n^2) fordi man skal legge til alle kantene i grafen. I realiteten er den ikke O(n^2) fordi grafen ikke er komplett som vil si at ikke alle stasjoner er tilkoblet sammen gjennom en tunnel.  
+
+3. Etter vi har lagt til kanter i graf hashmapet er modellen for Oslo tbane laget og vi kan utføre et dijskra søk basert på en brukers input. Det er flere funksjoner som brukes for å håntere og forme brukerns input til noe vi kan sende til dijkstra søket vårt. Når vi gjør et dijkstra søk får vi en graf som angir korteste vei fra start noden til alle noder til hver annen node i grafen. Vi ønsker bare en vei fra en spesefikk node til start noden. I metoden printPath() henter vi den spesefikke veien vi ønsker ved å gå baklengs fra slutt til start fra grafen vi fikk fra diksjra søket. Deretter printe ut veien vi fikk ved å gå baklengs i rett kronoligsik rekkefølge.     
 
 
-# Tidskompleksistet :
-- Tidskomleksiteten til dijkstra er  
+# Tidskompleksistet til dikstra:
+- Tidskomleksiteten til dijkstra er O((V + E) log V) fordi jeg har implementer dijsktraen med en prioriterings kø.  
 
-- Tidskomkleksiteten til addEgdes() skulle man tro er O(n^2) fordi man skal legge til alle kantene i grafen. I realiteten er den ikke O(n^2) fordi grafen ikke er komplett som vil si at ikke alle stasjoner er tilkoblet sammen gjennom en tunnel.  
-        
 
 # Hvordan kjøre programmet :
 - I terminalen 
