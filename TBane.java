@@ -158,7 +158,7 @@ class TBane{
                 if(c < distance.get(nextStationID)){ //triggers only if its a shorter way from out of all neighboring stations to the station that just got taken from the priority queue 
                     distance.put(nextStationID, c);//dist[v] ← c
 
-                    getStationsHashMap().get(nextStationID).stationSetDist(c); //insert(queue, v) v har ny prioritet 
+                    getStationsHashMap().get(nextStationID).stationSetDist(c); //insert(queue, v) v have ny priority 
                     queue.offer(getStationsHashMap().get(nextStationID)); //put the new shortes path back in the queue to check their neighboring stations for a shorter path
 
                     String[] stationInfo = new String[2];
